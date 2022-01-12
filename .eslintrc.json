@@ -1,7 +1,8 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "plugins": ["@nrwl/nx", "react", "jsx-a11y", "jest", "react-hooks", "import"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:jsx-a11y/recommended", "plugin:react-hooks/recommended", "plugin:prettier/recommended"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -18,18 +19,75 @@
               }
             ]
           }
-        ]
+        ],
+
+        "no-empty": "error",
+        "no-unused-vars": "error",
+        "no-plusplus": [
+          "error",
+          {
+            "allowForLoopAfterthoughts": true
+          }
+        ],
+        "curly": [
+          "error",
+          "all"
+        ],
+        "lines-between-class-members": [
+          "error",
+          "always",
+          {
+            "exceptAfterSingleLine": true
+          }
+        ],
+        "newline-after-var": "error",
+        "padding-line-between-statements": ["error", { "blankLine": "always", "prev": "*", "next": "return" }],
+        "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+
+        "react/self-closing-comp": ["error", { "component": true, "html": true }],
+        "react/no-multi-comp": "error",
+        "react/prefer-stateless-function": "error",
+        "react/jsx-max-depth": ["error", {"max": 8}],
+        "react/jsx-boolean-value": ["error", "never"],
+        "react/jsx-key": "error",
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
+
+        "import/no-default-export": "error",
+        "import/order": ["error", {
+          "groups": ["builtin", "external", "internal", "sibling"],
+          "newlines-between": "never",
+          "pathGroups": [
+            { "pattern": "*.scss", "group": "internal", "position": "after" },
+            { "pattern": "*.(svg|png|jpeg)", "group": "internal", "position": "after" }
+          ]
+        }],
+        "import/no-duplicates": ["error"],
+        "import/group-exports": ["error"]
       }
     },
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": ["error"],
+        "@typescript-eslint/no-explicit-any": ["error"],
+        "@typescript-eslint/no-unused-vars": ["error", {
+          "args": "all",
+          "argsIgnorePattern": "^_"
+        }],
+        "@typescript-eslint/explicit-function-return-type": ["error"]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
       "rules": {}
     }
-  ]
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }
