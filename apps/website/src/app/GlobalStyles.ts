@@ -8,15 +8,18 @@ const GlobalStyles = createGlobalStyle`
     // --color__basic-400: #d1d4d7;
     // --color__basic-500: #6c717a;
     // --color__basic-500: #40464e;
-    // --color__basic-900: #191919;
+    --color__basic-900: #191919;
+
+    --color__primary-500: #ffd900;
+
     --font__primary: 'futura-pt', sans-serif;
-    // --font__secondary: 'Montserrat', sans-serif;
-    // --font-weight__extra-light: 200;
-    // --font-weight__light: 300;
-    // --font-weight__regular: 400;
-    // --font-weight__medium: 500;
-    // --font-weight__semi-bold: 600;
-    // --font-weight__bold: 700;
+
+    --font-weight__light: 300;
+    --font-weight__regular: 400;
+    --font-weight__medium: 500;
+    --font-weight__semi-bold: 600;
+    --font-weight__bold: 700;
+
     --min-width: 320px;
     --max-width: 1500px;
   }

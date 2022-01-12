@@ -7,7 +7,6 @@ const Hamburger: FC = () => {
 			<HamburgerLine />
 			<HamburgerLine />
 			<HamburgerLine />
-			<HamburgerLine />
 		</HamburgerStyled>
 	);
 };
