@@ -30,20 +30,11 @@ const HamburgerLine = styled.span<{ index: number; mutated: boolean }>`
 	transform: rotate(0);
 	transition: all ${LineAnimationTime}ms ease-in-out;
 
-	${({ index, mutated }) =>
-		index === 0 &&
-		mutated &&
-		css`
-			top: ${rem(8)};
-			opacity: 0;
-		`}
-
 	${({ index }) =>
 		(index === 1 || index === 2) &&
 		css`
 			top: ${rem(8)};
 		`}
-
 
 	${({ index }) =>
 		index === 3 &&
@@ -51,26 +42,13 @@ const HamburgerLine = styled.span<{ index: number; mutated: boolean }>`
 			top: ${rem(16)};
 		`}
 
-  ${({ index, mutated }) =>
-		index === 1 &&
+  ${({ mutated, index }) =>
 		mutated &&
 		css`
-			transform: rotate(45deg);
-		`}
-
-  ${({ index, mutated }) =>
-		index === 2 &&
-		mutated &&
-		css`
-			transform: rotate(-45deg);
-		`}
-
-  ${({ index, mutated }) =>
-		index === 3 &&
-		mutated &&
-		css`
-			top: ${rem(8)};
-			opacity: 0;
+			top: ${(index === 0 || index === 3) && rem(8)};
+			opacity: ${(index === 0 || index === 3) && '0'};
+			transform: ${index === 1 && 'rotate(45deg)'};
+			transform: ${index === 2 && 'rotate(-45deg)'};
 		`}
 `;
 
