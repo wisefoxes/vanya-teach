@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes, useState } from 'react';
-import { HamburgerLine, HamburgerStyled } from './Hamburger.style';
+import { HamburgerLine, HamburgerStyled, LinesWrapper } from './Hamburger.style';
 
 type Props = HTMLAttributes<HTMLButtonElement>;
 
@@ -17,9 +17,12 @@ const Hamburger: FC<Props> = (props: Props) => {
 
 	return (
 		<HamburgerStyled onClick={clickHamburgerHandler} {...restProps}>
-			<HamburgerLine />
-			<HamburgerLine />
-			<HamburgerLine />
+			<LinesWrapper>
+				<HamburgerLine index={0} mutated={open} />
+				<HamburgerLine index={1} mutated={open} />
+				<HamburgerLine index={2} mutated={open} />
+				<HamburgerLine index={3} mutated={open} />
+			</LinesWrapper>
 		</HamburgerStyled>
 	);
 };
