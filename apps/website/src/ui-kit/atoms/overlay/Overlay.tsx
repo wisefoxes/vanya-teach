@@ -1,8 +1,10 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import { OverlayStyled } from './Overlay.style';
 
-const Overlay: FC = () => {
-	return <OverlayStyled role="presentation" />;
+type Props = HTMLAttributes<HTMLDivElement>;
+
+const Overlay: FC<Props> = (props: Props) => {
+	return <OverlayStyled role="presentation" {...props} />;
 };
 
 export { Overlay };

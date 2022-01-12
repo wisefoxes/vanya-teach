@@ -3,16 +3,10 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavigationStyled = styled.nav`
-	position: fixed;
-	top: 0;
-	left: 0;
 	background-color: var(--color__basic-100);
-	width: 100%;
 	padding: ${rem(30)} ${rem(20)};
 	display: flex;
 	box-sizing: border-box;
-	top: ${rem(69)};
-	z-index: 2;
 `;
 
 const NavigationList = styled.ul`

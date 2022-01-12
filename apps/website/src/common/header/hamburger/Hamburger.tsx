@@ -1,9 +1,22 @@
-import { FC } from 'react';
+import React, { FC, HTMLAttributes, useState } from 'react';
 import { HamburgerLine, HamburgerStyled } from './Hamburger.style';
 
-const Hamburger: FC = () => {
+type Props = HTMLAttributes<HTMLButtonElement>;
+
+const Hamburger: FC<Props> = (props: Props) => {
+	const { onClick, ...restProps } = props;
+	const [open, setOpen] = useState(false);
+
+	const clickHamburgerHandler = (event: React.MouseEvent<HTMLButtonElement>): void => {
+		setOpen(!open);
+
+		if (onClick) {
+			onClick(event);
+		}
+	};
+
 	return (
-		<HamburgerStyled>
+		<HamburgerStyled onClick={clickHamburgerHandler} {...restProps}>
 			<HamburgerLine />
 			<HamburgerLine />
 			<HamburgerLine />

@@ -1,15 +1,37 @@
-import { FC } from 'react';
+import { FC, useRef, useState } from 'react';
+import { Transition } from 'react-transition-group';
+import { BodyAttached } from 'ui-kit/atoms/body-attached';
 import { Logo } from './logo';
 import { Hamburger } from './hamburger';
-import { HeaderStyled } from './Header.style';
-import { MobileMenu } from './mobile-menu';
-
+import { HeaderContent, HeaderStyled, MobileMenuAnimated, MobileMenuTransitionTime, OverlayAnimated } from './Header.style';
 const Header: FC = () => {
+	const [open, setOpen] = useState(false);
+	const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+	const clickHamburgerHandler = (): void => {
+		setOpen(!open);
+	};
+
+	const menu = (
+		<Transition nodeRef={mobileMenuRef} in={open} timeout={{ exit: MobileMenuTransitionTime }} mountOnEnter unmountOnExit>
+			{(state): JSX.Element => (
+				<BodyAttached>
+					<div ref={mobileMenuRef}>
+						<MobileMenuAnimated transitionStatus={state} />
+						<OverlayAnimated transitionStatus={state} />
+					</div>
+				</BodyAttached>
+			)}
+		</Transition>
+	);
+
 	return (
 		<HeaderStyled>
-			<Logo />
-			<Hamburger />
-			<MobileMenu />
+			<HeaderContent>
+				<Logo />
+				<Hamburger onClick={clickHamburgerHandler} />
+				{menu}
+			</HeaderContent>
 		</HeaderStyled>
 	);
 };
