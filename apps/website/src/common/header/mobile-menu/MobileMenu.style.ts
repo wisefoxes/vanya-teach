@@ -11,7 +11,8 @@ const NavigationStyled = styled.nav`
 	padding: ${rem(30)} ${rem(20)};
 	display: flex;
 	box-sizing: border-box;
-	top: ${rem(70)};
+	top: ${rem(69)};
+	z-index: 2;
 `;
 
 const NavigationList = styled.ul`

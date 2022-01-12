@@ -13,6 +13,7 @@ const HeaderStyled = styled.header`
 	padding: ${rem(20)};
 	box-sizing: border-box;
 	align-items: center;
+	z-index: 2;
 `;
 
 export { HeaderStyled };
