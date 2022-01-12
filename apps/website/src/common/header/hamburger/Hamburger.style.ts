@@ -19,7 +19,16 @@ const LinesWrapper = styled.div`
 	width: ${rem(28)};
 `;
 
-const HamburgerLine = styled.span<{ index: number; mutated: boolean }>`
+const HamburgerLine = styled.span.attrs<
+	{ index: number; mutated: boolean },
+	{ firstLine: boolean; lastLine: boolean; mid1Line: boolean; mid2Line: boolean; mutated: boolean }
+>(({ index, mutated }) => ({
+	firstLine: index === 0,
+	lastLine: index === 3,
+	mid1Line: index === 1,
+	mid2Line: index === 2,
+	mutated,
+}))<{ index: number; mutated: boolean }>`
 	background-color: var(--color__basic-900);
 	display: block;
 	width: 100%;
@@ -30,25 +39,25 @@ const HamburgerLine = styled.span<{ index: number; mutated: boolean }>`
 	transform: rotate(0);
 	transition: all ${LineAnimationTime}ms ease-in-out;
 
-	${({ index }) =>
-		(index === 1 || index === 2) &&
+	${({ mid1Line, mid2Line }) =>
+		(mid1Line || mid2Line) &&
 		css`
 			top: ${rem(8)};
 		`}
 
-	${({ index }) =>
-		index === 3 &&
+	${({ lastLine }) =>
+		lastLine &&
 		css`
 			top: ${rem(16)};
 		`}
 
-  ${({ mutated, index }) =>
+  ${({ mutated, firstLine, lastLine, mid1Line, mid2Line }) =>
 		mutated &&
 		css`
-			top: ${(index === 0 || index === 3) && rem(8)};
-			opacity: ${(index === 0 || index === 3) && '0'};
-			transform: ${index === 1 && 'rotate(45deg)'};
-			transform: ${index === 2 && 'rotate(-45deg)'};
+			top: ${(firstLine || lastLine) && rem(8)};
+			opacity: ${(firstLine || lastLine) && '0'};
+			transform: ${mid1Line && 'rotate(45deg)'};
+			transform: ${mid2Line && 'rotate(-45deg)'};
 		`}
 `;
 
