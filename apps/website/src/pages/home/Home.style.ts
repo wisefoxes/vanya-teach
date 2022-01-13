@@ -1,4 +1,4 @@
-import { bodyPadding } from 'design/generic/layout';
+import { bodyPadding, pageContainer } from 'design/generic/layout';
 import { rem } from 'polished';
 import styled from 'styled-components';
 import { ButtonLink } from 'ui-kit/atoms/button-link';
@@ -12,6 +12,7 @@ const HomeStyled = styled.main`
 `;
 
 const HomeTitle = styled.h1`
+	${pageContainer}
 	font-size: ${rem(45)};
 	font-weight: var(--font-weight__medium);
 	text-align: center;
@@ -19,6 +20,7 @@ const HomeTitle = styled.h1`
 `;
 
 const HomeSubTitle = styled.h6`
+	${pageContainer}
 	font-size: ${rem(22)};
 	margin-top: ${rem(50)};
 	text-align: center;
