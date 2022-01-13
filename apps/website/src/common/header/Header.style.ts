@@ -1,4 +1,4 @@
-import { transitionValue } from 'lib/animation/transition-status';
+import { transitionValue } from 'design/tools/transitions';
 import { rem } from 'polished';
 import { TransitionStatus } from 'react-transition-group';
 import styled, { css } from 'styled-components';

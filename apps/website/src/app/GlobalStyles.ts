@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
     // --color__basic-500: #40464e;
     --color__basic-900: #191919;
 
+    --color__primary-400: #ffea00;
     --color__primary-500: #ffd900;
 
     --font__primary: 'futura-pt', sans-serif;

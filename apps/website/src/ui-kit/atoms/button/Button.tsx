@@ -1,12 +1,12 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, HTMLAttributes, PropsWithChildren } from 'react';
+import { ButtonStyled } from './Button.style';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-type Props = {};
+type Props = HTMLAttributes<HTMLButtonElement>;
 
 const Button: FC<PropsWithChildren<Props>> = (props: PropsWithChildren<Props>) => {
-	const { children } = props;
+	const { children, ...restProps } = props;
 
-	return <button>{children}</button>;
+	return <ButtonStyled {...restProps}>{children}</ButtonStyled>;
 };
 
 export { Button };
