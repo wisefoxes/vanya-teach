@@ -31,13 +31,14 @@ const SelectCourse = styled(ButtonLink)`
 
 const ImageWrapper = styled.div`
 	position: relative;
+	overflow-x: hidden;
 `;
 
 const WavesBackground = styled(MainWaves)`
 	position: absolute;
 	z-index: -1;
 	bottom: 0;
-	height: 100%;
+	height: 95%;
 	transform: translate(${rem(-800)}, ${rem(-10)});
 `;
 
