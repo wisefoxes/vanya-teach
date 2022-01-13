@@ -28,4 +28,8 @@ function evaluateRatio(ratio: string): number {
 	return Number(ratioWidth) / Number(ratioHeight);
 }
 
-export { generateImageUrl };
+function calculateHeightOffest(ratio: string): string {
+	return (evaluateRatio(ratio) * 100).toFixed(2);
+}
+
+export { generateImageUrl, calculateHeightOffest };

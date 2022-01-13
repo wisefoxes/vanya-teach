@@ -38,7 +38,7 @@ const ResponsiveImage: FC<Props> = (props: Props) => {
 				{largeSource}
 				{mediumSource}
 				{smallSource}
-				<ImageStyled alt={alt} src={`${staticHost}/${sImage}`} {...restProps} />
+				<ImageStyled alt={alt} src={`${staticHost}/${sImage}`} ratio={ratio} {...restProps} />
 			</picture>
 		</figure>
 	);
