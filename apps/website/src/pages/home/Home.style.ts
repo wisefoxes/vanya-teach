@@ -36,6 +36,7 @@ const BackgroundWaves = styled.div`
 	width: 100%;
 	left: 0;
 	z-index: -1;
+	right: 0;
 `;
 
 export { HomeStyled, HomeTitle, HomeSubTitle, SelectCourse, BackgroundWaves };
