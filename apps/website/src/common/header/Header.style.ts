@@ -51,6 +51,7 @@ const OverlayAnimated = styled(Overlay)<{ transitionStatus: TransitionStatus }>`
 
 const HeaderContent = styled.div`
 	max-width: var(--max-width);
+	min-width: var(--min-width);
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;

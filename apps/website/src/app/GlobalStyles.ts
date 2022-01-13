@@ -70,6 +70,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     font-family: var(--font__primary);
+    min-width: var(--min-width);
   }
 `;
 
