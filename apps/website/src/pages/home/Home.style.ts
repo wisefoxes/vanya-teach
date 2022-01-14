@@ -34,6 +34,7 @@ const SelectCourse = styled(ButtonLink)`
 const ImageWrapper = styled.div`
 	position: relative;
 	overflow-x: hidden;
+	margin-top: ${rem(30)};
 `;
 
 const WavesBackground = styled(MainWaves)`
@@ -45,10 +46,7 @@ const WavesBackground = styled(MainWaves)`
 `;
 
 const MainImage = styled(ResponsiveImage)`
-	z-index: -1;
-	width: 90%;
 	margin: ${rem(60)} auto 0;
-	max-width: ${rem(500)};
 `;
 
 export { HomeStyled, HomeTitle, HomeSubTitle, SelectCourse, WavesBackground, ImageWrapper, MainImage };

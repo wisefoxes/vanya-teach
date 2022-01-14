@@ -28,8 +28,10 @@ function evaluateRatio(ratio: string): number {
 	return Number(ratioWidth) / Number(ratioHeight);
 }
 
-function calculateHeightOffest(ratio: string): string {
-	return (evaluateRatio(ratio) * 100).toFixed(2);
+function calculateOffestByRatio(ratio: string): string {
+	const [ratioWidth, ratioHeight] = ratio.split(RATIO_SEPARATOR);
+
+	return ((Number(ratioHeight) / Number(ratioWidth)) * 100).toFixed(2);
 }
 
-export { generateImageUrl, calculateHeightOffest };
+export { generateImageUrl, calculateOffestByRatio };

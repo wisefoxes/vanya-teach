@@ -1,13 +1,41 @@
 import styled, { css } from 'styled-components';
-import { calculateHeightOffest } from './helpers';
+import { calculateOffestByRatio } from './helpers';
 
-const ImageStyled = styled.img.attrs<{ ratio: string }, { offset: string }>(({ ratio }) => ({ offset: calculateHeightOffest(ratio) }))<{
+const ContainerStyled = styled.div.attrs<{ ratio: string; loaded: boolean }, { offset: string }>(({ ratio }) => ({
+	offset: calculateOffestByRatio(ratio),
+}))<{
 	ratio: string;
+	loaded: boolean;
 }>`
-	${() => css`
+	${({ offset, loaded }) => css`
 		display: block;
-		width: 100%;
+		padding-top: ${offset}%;
+		position: relative;
+		background-color: var(--color__basic-300);
+
+		${loaded &&
+		css`
+			background-color: transparent;
+		`}
 	`}
 `;
 
-export { ImageStyled };
+const ImageStyled = styled.img<{ loaded: boolean }>`
+	${({ loaded }) => css`
+		display: block;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		opacity: 0;
+		transition: opacity 0.3s ease-in;
+
+		${loaded &&
+		css`
+			opacity: 1;
+		`}
+	`}
+`;
+
+export { ImageStyled, ContainerStyled };

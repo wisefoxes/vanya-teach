@@ -1,6 +1,6 @@
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, useState } from 'react';
 import { generateImageUrl } from './helpers';
-import { ImageStyled } from './ResponsiveImage.style';
+import { ContainerStyled, ImageStyled } from './ResponsiveImage.style';
 
 type Props = {
 	name: string;
@@ -25,6 +25,7 @@ const ResponsiveImage: FC<Props> = (props: Props) => {
 		breakpoints: { s, m, l },
 		...restProps
 	} = props;
+	const [loaded, setLoaded] = useState(false);
 
 	const { s: sImage, m: mImage, l: lImage } = generateImageUrl(name, { s, m, l }, ratio, ext);
 
@@ -32,15 +33,19 @@ const ResponsiveImage: FC<Props> = (props: Props) => {
 	const mediumSource = m && <source srcSet={`${staticHost}/${mImage}`} />;
 	const largeSource = l && <source srcSet={`${staticHost}/${lImage}`} />;
 
+	const imageLoadHandler = (): void => setLoaded(true);
+
 	return (
-		<figure>
-			<picture>
-				{largeSource}
-				{mediumSource}
-				{smallSource}
-				<ImageStyled alt={alt} src={`${staticHost}/${sImage}`} ratio={ratio} {...restProps} />
-			</picture>
-		</figure>
+		<ContainerStyled ratio={ratio} loaded={loaded} {...restProps}>
+			<figure>
+				<picture>
+					{largeSource}
+					{mediumSource}
+					{smallSource}
+					<ImageStyled alt={alt} src={`${staticHost}/${sImage}`} loaded={loaded} onLoad={imageLoadHandler} />
+				</picture>
+			</figure>
+		</ContainerStyled>
 	);
 };
 
