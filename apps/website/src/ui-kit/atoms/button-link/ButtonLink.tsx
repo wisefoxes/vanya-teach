@@ -4,13 +4,13 @@ import { ButtonLinkStyled } from './ButtonLink.style';
 
 type Props = {
 	type?: 'basic' | 'primary';
-} & Omit<LinkProps, 'type'>;
+} & LinkProps;
 
 const ButtonLink: FC<PropsWithChildren<Props>> = (props: PropsWithChildren<Props>) => {
 	const { children, type = 'basic', ...restProps } = props;
 
 	return (
-		<ButtonLinkStyled type={type} {...restProps}>
+		<ButtonLinkStyled $type={type} {...restProps}>
 			{children}
 		</ButtonLinkStyled>
 	);

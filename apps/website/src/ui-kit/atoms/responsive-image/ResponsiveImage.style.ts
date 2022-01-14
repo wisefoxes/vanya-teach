@@ -1,15 +1,15 @@
 import styled, { css } from 'styled-components';
 import { calculateOffestByRatio } from './helpers';
 
-const ContainerStyled = styled.div.attrs<{ ratio: string; loaded: boolean }, { offset: string }>(({ ratio }) => ({
-	offset: calculateOffestByRatio(ratio),
+const ContainerStyled = styled.div.attrs<{ ratio: string; loaded: boolean }, { $offset: string }>(({ ratio }) => ({
+	$offset: calculateOffestByRatio(ratio),
 }))<{
 	ratio: string;
 	loaded: boolean;
 }>`
-	${({ offset, loaded }) => css`
+	${({ $offset, loaded }) => css`
 		display: block;
-		padding-top: ${offset}%;
+		padding-top: ${$offset}%;
 		position: relative;
 		background-color: var(--color__basic-300);
 
