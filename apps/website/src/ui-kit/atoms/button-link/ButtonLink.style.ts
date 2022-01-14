@@ -24,10 +24,10 @@ const ButtonLinkStyled = styled(Link).attrs(({ type }) => ({ primary: type === '
 
 		${primary &&
 		css`
-			background-color: var(--color__primary-400);
+			background-color: var(--color__primary-500);
 
 			&:hover {
-				background-color: var(--color__basic-100);
+				background-color: var(--color__primary-400);
 			}
 		`}
 	`}
