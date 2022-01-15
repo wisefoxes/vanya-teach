@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { ButtonLink } from 'ui-kit/atoms/button-link';
 import { ReactComponent as MainWaves } from 'ui-kit/icons/main-waves.svg';
 import { ResponsiveImage } from 'ui-kit/atoms/responsive-image';
+import { Heading } from 'ui-kit/atoms/heading';
 
 const HomeStyled = styled.main`
 	${bodyPadding}
@@ -11,7 +12,7 @@ const HomeStyled = styled.main`
 	max-width: var(--max-width);
 `;
 
-const HomeTitle = styled.h1`
+const HomeTitle = styled(Heading)`
 	${pageContainer}
 	font-size: ${rem(45)};
 	font-weight: var(--font-weight__medium);
@@ -19,11 +20,9 @@ const HomeTitle = styled.h1`
 	line-height: 1.2;
 `;
 
-const HomeSubTitle = styled.h6`
+const HomeSubTitle = styled(Heading)`
 	${pageContainer}
-	font-size: ${rem(22)};
 	margin-top: ${rem(50)};
-	text-align: center;
 `;
 
 const SelectCourse = styled(ButtonLink)`

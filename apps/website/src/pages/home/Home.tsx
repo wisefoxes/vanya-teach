@@ -9,7 +9,7 @@ const Home: FC = () => {
 	return (
 		<HomeStyled>
 			<HomeTitle>Онлайн-школа гитары Ивана Захаренко</HomeTitle>
-			<HomeSubTitle>Более 1500 студентов по всему земному шару</HomeSubTitle>
+			<HomeSubTitle level={6}>Более 1500 студентов по всему земному шару</HomeSubTitle>
 			<SelectCourse to="/courses" type="primary">
 				Выбрать свой курс
 			</SelectCourse>
