@@ -2,6 +2,7 @@ import { useStaticInfo } from 'core/static/static-context';
 import { FC } from 'react';
 import { TextLink } from 'ui-kit/atoms/text-link';
 import { CoursesDescription } from './courses-description';
+import { DiscountBanner } from './discount-banner';
 import {
 	WavesBackground,
 	HomeStyled,
@@ -56,6 +57,7 @@ const Home: FC = () => {
 					5 млн. просмотров обучающих видео на YouTube.&quot;
 				</QuoteAchievements>
 			</AboutMe>
+			<DiscountBanner />
 		</HomeStyled>
 	);
 };
