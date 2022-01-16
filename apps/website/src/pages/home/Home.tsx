@@ -41,8 +41,10 @@ const Home: FC = () => {
 					<AchievementItem>Более 1500 студентов по всему земному шару;</AchievementItem>
 					<AchievementItem>
 						Автор YouTube канала{' '}
-						<TextLink href="https://www.youtube.com/channel/UCRHlIHugU0GvJsvTGU5MH1g">&quot;Ваня, научи!&quot;</TextLink> с аудиторией
-						70.000+ подписчиков.
+						<TextLink href="https://www.youtube.com/channel/UCRHlIHugU0GvJsvTGU5MH1g" target="_blank">
+							&quot;Ваня, научи!&quot;
+						</TextLink>{' '}
+						с аудиторией 70.000+ подписчиков.
 					</AchievementItem>
 				</AchievementsList>
 				<QuoteAchievements>

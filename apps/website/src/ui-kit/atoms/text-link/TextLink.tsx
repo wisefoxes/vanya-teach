@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 import { LinkStyled } from './TextLink.style';
 
-type Props = { href: string } & HTMLAttributes<HTMLAnchorElement>;
+type Props = { href: string; target: string } & HTMLAttributes<HTMLAnchorElement>;
 
 const TextLink: FC<PropsWithChildren<Props>> = (props: PropsWithChildren<Props>) => {
 	const { children, ...restProps } = props;

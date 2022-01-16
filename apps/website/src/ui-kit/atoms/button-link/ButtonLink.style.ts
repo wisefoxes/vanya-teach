@@ -2,10 +2,10 @@ import { rem } from 'polished';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-const ButtonLinkStyled = styled(Link).attrs<{ $type: string }, { primary: boolean }>(({ $type }) => ({ primary: $type === 'primary' }))<{
+const ButtonLinkStyled = styled(Link).attrs<{ $type: string }, { $primary: boolean }>(({ $type }) => ({ $primary: $type === 'primary' }))<{
 	$type: string;
 }>`
-	${({ primary }) => css`
+	${({ $primary }) => css`
 		display: flex;
 		height: ${rem(70)};
 		background-color: var(--color__basic-100);
@@ -24,7 +24,7 @@ const ButtonLinkStyled = styled(Link).attrs<{ $type: string }, { primary: boolea
 			background-color: var(--color__primary-400);
 		}
 
-		${primary &&
+		${$primary &&
 		css`
 			background-color: var(--color__primary-500);
 
