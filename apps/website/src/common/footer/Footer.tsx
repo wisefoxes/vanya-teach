@@ -16,7 +16,7 @@ const Footer: FC = () => {
 			</div>
 			<Button>Политика конфиденциальности</Button>
 			<Button>Правила оплаты</Button>
-			<ResponsiveImage name="payment-types" staticHost={staticHost} breakpoints={{ s: 195 }} ratio="13/23" ext="png" />
+			<ResponsiveImage name="payment-types" staticHost={staticHost} breakpoints={{ s: 275 }} ratio="275/487" ext="png" />
 		</FooterStyled>
 	);
 };
