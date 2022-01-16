@@ -16,7 +16,6 @@ const CourseArticle = styled.article`
 
 const CourseTitle = styled(Heading)`
 	margin-top: ${rem(40)};
-	font-size: ${rem(40)};
 `;
 
 const CourseInfo = styled.div`

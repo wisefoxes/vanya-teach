@@ -10,11 +10,11 @@ const HomeStyled = styled.main`
 	${bodyPadding}
 
 	max-width: var(--max-width);
+	margin: 0 auto;
 `;
 
 const HomeTitle = styled(Heading)`
 	${pageContainer}
-	font-size: ${rem(45)};
 	font-weight: var(--font-weight__medium);
 	text-align: center;
 	line-height: 1.2;
@@ -48,4 +48,43 @@ const MainImage = styled(ResponsiveImage)`
 	margin: ${rem(60)} auto 0;
 `;
 
-export { HomeStyled, HomeTitle, HomeSubTitle, SelectCourse, WavesBackground, ImageWrapper, MainImage };
+const AboutMe = styled.section`
+	${pageContainer}
+	margin-top: ${rem(50)};
+`;
+
+const TeacherName = styled(Heading)`
+	text-align: left;
+`;
+
+const AchievementsList = styled.ul`
+	list-style-type: '— ';
+	list-style-position: inside;
+	margin-top: ${rem(15)};
+`;
+
+const AchievementItem = styled.li`
+	line-height: 1.45;
+	font-size: ${rem(18)};
+`;
+
+const QuoteAchievements = styled.blockquote`
+	font-size: ${rem(14)};
+	line-height: 1.45;
+	margin-top: ${rem(20)};
+`;
+
+export {
+	HomeStyled,
+	HomeTitle,
+	HomeSubTitle,
+	SelectCourse,
+	WavesBackground,
+	ImageWrapper,
+	MainImage,
+	AboutMe,
+	TeacherName,
+	AchievementsList,
+	AchievementItem,
+	QuoteAchievements,
+};

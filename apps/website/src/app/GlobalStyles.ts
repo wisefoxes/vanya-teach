@@ -13,6 +13,8 @@ const GlobalStyles = createGlobalStyle`
     --color__primary-400: #ffea00;
     --color__primary-500: #ffd900;
 
+    --color__warning-400: #ff8562;
+
     --font__primary: 'futura-pt', sans-serif;
 
     --font-weight__light: 300;
