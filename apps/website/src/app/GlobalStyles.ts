@@ -1,3 +1,4 @@
+import { maxScreenSize, minScreenSize } from 'design/settings/screen-sizes';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
@@ -23,8 +24,8 @@ const GlobalStyles = createGlobalStyle`
     --font-weight__semi-bold: 600;
     --font-weight__bold: 700;
 
-    --min-width: 320px;
-    --max-width: 1500px;
+    --min-width: ${minScreenSize}px;
+    --max-width: ${maxScreenSize}px;
   }
 
   html, body, div, span, applet, object, iframe,
