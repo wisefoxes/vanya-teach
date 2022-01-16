@@ -1,9 +1,11 @@
 import { FC, PropsWithChildren } from 'react';
 import { LinkProps } from 'react-router-dom';
 import { ButtonLinkStyled } from './ButtonLink.style';
+import { ButtonLinkSize, ButtonLinkType } from './types';
 
 type Props = {
-	type?: 'basic' | 'primary';
+	type?: ButtonLinkType;
+	size?: ButtonLinkSize;
 } & LinkProps;
 
 const ButtonLink: FC<PropsWithChildren<Props>> = (props: PropsWithChildren<Props>) => {

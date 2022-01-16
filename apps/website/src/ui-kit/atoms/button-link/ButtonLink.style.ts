@@ -1,14 +1,20 @@
 import { rem } from 'polished';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+import { ButtonLinkType } from './types';
 
-const ButtonLinkStyled = styled(Link).attrs<{ $type: string }, { $primary: boolean }>(({ $type }) => ({ $primary: $type === 'primary' }))<{
-	$type: string;
+const ButtonLinkStyled = styled(Link).attrs<{ $type: ButtonLinkType }, { $primary: boolean }>(({ $type }) => ({
+	$primary: $type === 'primary',
+}))<{
+	$type: ButtonLinkType;
 }>`
 	${({ $primary }) => css`
+		--bg-color: var(--color__basic-100);
+		--bg-color-hover: var(--color__primary-400);
+
 		display: flex;
 		height: ${rem(70)};
-		background-color: var(--color__basic-100);
+		background-color: var(--bg-color);
 		border-radius: ${rem(10)};
 		justify-content: center;
 		align-items: center;
@@ -21,16 +27,13 @@ const ButtonLinkStyled = styled(Link).attrs<{ $type: string }, { $primary: boole
 		border: ${rem(1)} solid var(--color__primary-400);
 
 		&:hover {
-			background-color: var(--color__primary-400);
+			background-color: var(--bg-color-hover);
 		}
 
 		${$primary &&
 		css`
-			background-color: var(--color__primary-500);
-
-			&:hover {
-				background-color: var(--color__primary-400);
-			}
+			--bg-color: var(--color__primary-500);
+			--bg-color-hover: var(--color__primary-400);
 		`}
 	`}
 `;

@@ -8,6 +8,7 @@ const BannerStyled = styled.div`
 	background-color: var(--color__primary-500);
 	padding-top: ${rem(105)};
 	padding-bottom: ${rem(105)};
+	margin-top: ${rem(20)};
 `;
 
 const SubHeader = styled.div`
