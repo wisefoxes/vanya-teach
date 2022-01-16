@@ -5,10 +5,11 @@ const GlobalStyles = createGlobalStyle`
   :root {
     --color__basic-100: #fff;
     --color__basic-200: #f6f6f8;
-    --color__basic-300:#e8e9eb;
+    --color__basic-300: #e8e9eb;
     --color__basic-400: #d1d4d7;
-    // --color__basic-500: #6c717a;
-    // --color__basic-500: #40464e;
+    --color__basic-500: #C5CEE0;
+    --color__basic-600: #8F9BB3;
+    --color__basic-700: #2E3A59;
     --color__basic-900: #191919;
 
     --color__primary-400: #ffea00;

@@ -15,13 +15,14 @@ const ButtonStyled = styled.button.attrs<{ $type: ButtonType }, { $primary: bool
 		border-radius: ${rem(10)};
 		justify-content: center;
 		align-items: center;
-		border: var(--color__primary-400);
-		font-size: ${rem(16)};
+		border: ${rem(2)} solid var(--color__primary-400);
+		font-size: ${rem(14)};
 		font-weight: var(--font-weight__semi-bold);
 		transition: background-color 0.2s ease-in-out;
 		color: var(--color__basic-900);
 		width: 100%;
 		cursor: pointer;
+		padding: 0 ${rem(15)};
 
 		&:hover {
 			background-color: var(--bg-color-hover);
