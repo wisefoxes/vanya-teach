@@ -13,9 +13,7 @@ const Header: FC = () => {
 		setOpen(!open);
 	};
 
-	useLocationChange(() => {
-		setOpen(false);
-	});
+	useLocationChange(() => setOpen(false));
 
 	const menu = (
 		<Transition nodeRef={mobileMenuRef} in={open} timeout={{ exit: MobileMenuTransitionTime }} mountOnEnter unmountOnExit>

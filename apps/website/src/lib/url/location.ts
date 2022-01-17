@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 function useLocationChange(callback: () => void): void {
 	const location = useLocation();
 
-	useEffect(callback, [location.pathname, callback]);
+	useEffect(callback, [location.pathname]);
 }
 
 export { useLocationChange };
