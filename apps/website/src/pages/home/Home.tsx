@@ -27,7 +27,7 @@ const Home: FC = () => {
 		<HomeStyled>
 			<HomeTitle>Онлайн-школа гитары Ивана Захаренко</HomeTitle>
 			<HomeSubTitle level={6}>Более 1500 студентов по всему земному шару</HomeSubTitle>
-			<SelectCourse to="/courses" type="primary">
+			<SelectCourse to="/courses" type="primary" size="large">
 				Выбрать свой курс
 			</SelectCourse>
 			<ImageWrapper>

@@ -1,19 +1,24 @@
 import { rem } from 'polished';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import { ButtonLinkType } from './types';
+import { ButtonLinkSize, ButtonLinkType } from './types';
 
-const ButtonLinkStyled = styled(Link).attrs<{ $type: ButtonLinkType }, { $primary: boolean }>(({ $type }) => ({
-	$primary: $type === 'primary',
-}))<{
+const ButtonLinkStyled = styled(Link).attrs<{ $type: ButtonLinkType; $size: ButtonLinkSize }, { $primary: boolean; $large: boolean }>(
+	({ $type, $size }) => ({
+		$primary: $type === 'primary',
+		$large: $size === 'large',
+	}),
+)<{
 	$type: ButtonLinkType;
+	$size: ButtonLinkSize;
 }>`
-	${({ $primary }) => css`
+	${({ $primary, $large }) => css`
 		--bg-color: var(--color__basic-100);
 		--bg-color-hover: var(--color__primary-400);
+		--height: ${rem(50)};
 
 		display: flex;
-		height: ${rem(70)};
+		height: var(--height);
 		background-color: var(--bg-color);
 		border-radius: ${rem(10)};
 		justify-content: center;
@@ -34,6 +39,11 @@ const ButtonLinkStyled = styled(Link).attrs<{ $type: ButtonLinkType }, { $primar
 		css`
 			--bg-color: var(--color__primary-500);
 			--bg-color-hover: var(--color__primary-400);
+		`}
+
+		${$large &&
+		css`
+			--height: ${rem(70)};
 		`}
 	`}
 `;

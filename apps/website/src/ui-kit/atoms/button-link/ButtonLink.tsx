@@ -9,10 +9,10 @@ type Props = {
 } & LinkProps;
 
 const ButtonLink: FC<PropsWithChildren<Props>> = (props: PropsWithChildren<Props>) => {
-	const { children, type = 'basic', ...restProps } = props;
+	const { children, type = 'basic', size = 'medium', ...restProps } = props;
 
 	return (
-		<ButtonLinkStyled $type={type} {...restProps}>
+		<ButtonLinkStyled $type={type} $size={size} {...restProps}>
 			{children}
 		</ButtonLinkStyled>
 	);
