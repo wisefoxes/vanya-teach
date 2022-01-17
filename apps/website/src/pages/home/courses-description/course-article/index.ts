@@ -1,0 +1,1 @@
+export { CourseArticle } from './CourseArticle';
