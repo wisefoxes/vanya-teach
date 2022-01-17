@@ -1,15 +1,14 @@
-import React, { FC, HTMLAttributes, useState } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 import { HamburgerLine, HamburgerStyled, LinesWrapper } from './Hamburger.style';
 
-type Props = HTMLAttributes<HTMLButtonElement>;
+type Props = {
+	open?: boolean;
+} & HTMLAttributes<HTMLButtonElement>;
 
 const Hamburger: FC<Props> = (props: Props) => {
-	const { onClick, ...restProps } = props;
-	const [open, setOpen] = useState(false);
+	const { onClick, open = false, ...restProps } = props;
 
 	const clickHamburgerHandler = (event: React.MouseEvent<HTMLButtonElement>): void => {
-		setOpen(!open);
-
 		if (onClick) {
 			onClick(event);
 		}

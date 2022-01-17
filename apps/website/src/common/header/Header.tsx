@@ -1,6 +1,7 @@
 import { FC, useRef, useState } from 'react';
 import { Transition } from 'react-transition-group';
 import { BodyAttached } from 'ui-kit/atoms/body-attached';
+import { useLocationChange } from 'lib/url/location';
 import { Logo } from './logo';
 import { Hamburger } from './hamburger';
 import { HeaderContent, HeaderStyled, MobileMenuAnimated, MobileMenuTransitionTime, OverlayAnimated } from './Header.style';
@@ -11,6 +12,10 @@ const Header: FC = () => {
 	const clickHamburgerHandler = (): void => {
 		setOpen(!open);
 	};
+
+	useLocationChange(() => {
+		setOpen(false);
+	});
 
 	const menu = (
 		<Transition nodeRef={mobileMenuRef} in={open} timeout={{ exit: MobileMenuTransitionTime }} mountOnEnter unmountOnExit>
@@ -29,7 +34,7 @@ const Header: FC = () => {
 		<HeaderStyled>
 			<HeaderContent>
 				<Logo />
-				<Hamburger onClick={clickHamburgerHandler} />
+				<Hamburger open={open} onClick={clickHamburgerHandler} />
 				{menu}
 			</HeaderContent>
 		</HeaderStyled>
