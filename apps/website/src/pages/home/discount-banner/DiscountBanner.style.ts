@@ -1,7 +1,6 @@
 import { pageContainer } from 'design/generic/layout';
 import { rem } from 'polished';
 import styled from 'styled-components';
-import { Button } from 'ui-kit/atoms/button';
 
 const BannerStyled = styled.div`
 	${pageContainer}
@@ -9,6 +8,9 @@ const BannerStyled = styled.div`
 	padding-top: ${rem(105)};
 	padding-bottom: ${rem(105)};
 	margin-top: ${rem(20)};
+	display: flex;
+	flex-direction: column;
+	gap: ${rem(30)};
 `;
 
 const SubHeader = styled.div`
@@ -17,8 +19,4 @@ const SubHeader = styled.div`
 	margin-top: ${rem(30)};
 `;
 
-const GetDiscount = styled(Button)`
-	margin-top: ${rem(30)};
-`;
-
-export { BannerStyled, SubHeader, GetDiscount };
+export { BannerStyled, SubHeader };
