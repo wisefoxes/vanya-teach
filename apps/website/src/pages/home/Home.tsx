@@ -17,6 +17,8 @@ import {
 	AchievementItem,
 	QuoteAchievements,
 } from './Home.style';
+import { WhatGet } from './what-get';
+import { WhatWaits } from './what-waits';
 
 const Home: FC = () => {
 	const { staticHost } = useStaticInfo();
@@ -58,6 +60,8 @@ const Home: FC = () => {
 				</QuoteAchievements>
 			</AboutMe>
 			<DiscountBanner />
+			<WhatWaits />
+			<WhatGet />
 		</HomeStyled>
 	);
 };

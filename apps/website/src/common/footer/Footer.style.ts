@@ -10,6 +10,9 @@ const FooterStyled = styled.footer`
 	display: flex;
 	flex-direction: column;
 	gap: ${rem(20)};
+	max-width: var(--max-width);
+	min-width: var(--min-width);
+	margin: 0 auto;
 `;
 
 export { FooterStyled };
