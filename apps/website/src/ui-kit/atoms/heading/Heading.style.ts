@@ -12,7 +12,7 @@ const HeadingStyled = styled.h1.attrs<
 	h5: as === 'h5',
 	h6: as === 'h6',
 }))`
-	${({ h1, h2, h6 }) => css`
+	${({ h1, h2, h3, h4, h5, h6 }) => css`
 		font-weight: var(--font-weight__medium);
 		line-height: 1.2;
 		text-align: center;
@@ -25,6 +25,21 @@ const HeadingStyled = styled.h1.attrs<
 		${h2 &&
 		css`
 			font-size: ${rem(40)};
+		`}
+
+    ${h3 &&
+		css`
+			font-size: ${rem(32)};
+		`}
+
+    ${h4 &&
+		css`
+			font-size: ${rem(28)};
+		`}
+
+    ${h5 &&
+		css`
+			font-size: ${rem(24)};
 		`}
 
 		${h6 &&
