@@ -9,9 +9,8 @@ const Header: FC = () => {
 	const [open, setOpen] = useState(false);
 	const mobileMenuRef = useRef<HTMLDivElement>(null);
 
-	const clickHamburgerHandler = (): void => {
-		setOpen(!open);
-	};
+	const clickHamburgerHandler = (): void => setOpen(!open);
+	const clickOverlayHandler = (): void => setOpen(false);
 
 	useLocationChange(() => setOpen(false));
 
@@ -21,7 +20,7 @@ const Header: FC = () => {
 				<BodyAttached>
 					<div ref={mobileMenuRef}>
 						<MobileMenuAnimated transitionStatus={state} />
-						<OverlayAnimated transitionStatus={state} />
+						<OverlayAnimated transitionStatus={state} onClick={clickOverlayHandler} />
 					</div>
 				</BodyAttached>
 			)}
