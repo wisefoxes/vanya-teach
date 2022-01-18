@@ -15,6 +15,4 @@ const MobileMenu: FC<PropsWithRef<Props>> = (props: Props) => {
 	);
 };
 
-MobileMenu.displayName = 'MobileMenu';
-
 export { MobileMenu };
