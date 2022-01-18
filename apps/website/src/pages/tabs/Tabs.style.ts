@@ -7,6 +7,8 @@ import WavesIcon from 'ui-kit/icons/main-waves.svg';
 
 const TabsStyled = styled.main`
 	padding-top: ${rem(200)};
+	max-width: var(--max-width);
+	margin: 0 auto;
 `;
 
 const TopSection = styled.section`
