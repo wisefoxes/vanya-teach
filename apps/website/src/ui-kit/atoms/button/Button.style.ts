@@ -2,12 +2,24 @@ import { rem } from 'polished';
 import styled, { css } from 'styled-components';
 import { ButtonType } from './types';
 
-const ButtonStyled = styled.button.attrs<{ $type: ButtonType }, { $primary: boolean }>(({ $type }) => ({ $primary: $type === 'primary' }))<{
+const ButtonStyled = styled.button.attrs<{ $type: ButtonType }, { $primary: boolean; $basic: boolean }>(({ $type }) => ({
+	$primary: $type === 'primary',
+	$basic: $type === 'basic',
+}))<{
 	$type: ButtonType;
 }>`
-	${({ $primary }) => css`
-		--bg-color: var(--color__basic-100);
-		--bg-color-hover: var(--color__primary-400);
+	${({ $basic, $primary }) => css`
+		${$basic &&
+		css`
+			--bg-color: var(--color__basic-100);
+			--bg-color-hover: var(--color__primary-400);
+		`}
+
+		${$primary &&
+		css`
+			--bg-color: var(--color__primary-400);
+			--bg-color-hover: var(--color__basic-100);
+		`}
 
 		display: flex;
 		height: ${rem(50)};
@@ -27,12 +39,6 @@ const ButtonStyled = styled.button.attrs<{ $type: ButtonType }, { $primary: bool
 		&:hover {
 			background-color: var(--bg-color-hover);
 		}
-
-		${$primary &&
-		css`
-			--bg-color: --color__primary-400;
-			--bg-color-hover: --color__basic-100;
-		`}
 	`}
 `;
 
