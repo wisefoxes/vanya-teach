@@ -2,6 +2,7 @@ import { rem } from 'polished';
 import styled from 'styled-components';
 
 const FooterStyled = styled.footer`
+	box-sizing: border-box;
 	padding: ${rem(60)} ${rem(50)} ${rem(50)};
 	font-size: ${rem(18)};
 	color: var(--color__basic-700);
