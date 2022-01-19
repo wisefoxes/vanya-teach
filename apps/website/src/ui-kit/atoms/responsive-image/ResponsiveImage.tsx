@@ -1,3 +1,4 @@
+import { largeScreen, mediumScreen, smallScreen } from 'design/settings/screen-sizes';
 import { FC, HTMLAttributes, useState } from 'react';
 import { generateImageUrl } from './helpers';
 import { ContainerStyled, ImageStyled } from './ResponsiveImage.style';
@@ -29,9 +30,9 @@ const ResponsiveImage: FC<Props> = (props: Props) => {
 
 	const { s: sImage, m: mImage, l: lImage } = generateImageUrl(name, { s, m, l }, ratio, ext);
 
-	const smallSource = s && <source srcSet={`${staticHost}/${sImage}`} />;
-	const mediumSource = m && <source srcSet={`${staticHost}/${mImage}`} />;
-	const largeSource = l && <source srcSet={`${staticHost}/${lImage}`} />;
+	const smallSource = s && <source srcSet={`${staticHost}/${sImage}`} media={`(min-width: ${smallScreen}px)`} />;
+	const mediumSource = m && <source srcSet={`${staticHost}/${mImage}`} media={`(min-width: ${mediumScreen}px)`} />;
+	const largeSource = l && <source srcSet={`${staticHost}/${lImage}`} media={`(min-width: ${largeScreen}px)`} />;
 
 	const imageLoadHandler = (): void => setLoaded(true);
 
