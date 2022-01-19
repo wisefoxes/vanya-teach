@@ -18,7 +18,7 @@ const CourseArticle: FC<Props> = (props: Props) => {
 
 	return (
 		<CourseArticleStyled {...restProps}>
-			<ResponsiveImage name={image} breakpoints={{ s: 460 }} staticHost={staticHost} ratio="115/74" ext="png" />
+			<ResponsiveImage name={image} breakpoints={{ s: 575 }} staticHost={staticHost} ratio="115/74" ext="png" />
 			<Heading level={2}>{title}</Heading>
 			<CourseInfo>{info}</CourseInfo>
 			<ButtonLink to={link} type="primary" size="large">

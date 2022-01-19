@@ -19,7 +19,7 @@ function generateImageUrl(
 }
 
 function calculateImageHeight(width: number, ratio: string): number {
-	return Math.ceil(width / evaluateRatio(ratio));
+	return Math.floor(width / evaluateRatio(ratio));
 }
 
 function evaluateRatio(ratio: string): number {

@@ -19,7 +19,7 @@ const Home: FC = () => {
 			</SelectCourse>
 			<ImageWrapper>
 				<WavesBackground />
-				<MainImage name="vanya-guitar" breakpoints={{ s: 500 }} staticHost={staticHost} ratio="500/549" ext="png" />
+				<MainImage name="vanya-guitar" breakpoints={{ s: 767, m: 1023 }} staticHost={staticHost} ratio="767/842" ext="png" />
 			</ImageWrapper>
 			<CoursesDescription />
 			<AboutMe />
