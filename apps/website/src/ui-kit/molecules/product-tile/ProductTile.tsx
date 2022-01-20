@@ -1,7 +1,6 @@
 import { FC, HTMLAttributes } from 'react';
-import { Button } from 'ui-kit/atoms/button';
 import { ResponsiveImage } from 'ui-kit/atoms/responsive-image';
-import { Complexity, Description, Price, ProductTileStyled, ProductTitle } from './ProductTile.style';
+import { AddToCart, Complexity, Description, ImageWrapper, Price, ProductTileStyled, ProductTitle } from './ProductTile.style';
 
 type Props = {
 	title: string;
@@ -15,13 +14,14 @@ const ProductTile: FC<Props> = (props: Props) => {
 
 	return (
 		<ProductTileStyled>
-			<ResponsiveImage name="hozier" breakpoints={{ s: 300 }} ext="jpg" ratio="1/1" />
+			<ImageWrapper>
+				<ResponsiveImage name="hozier" breakpoints={{ s: 300 }} ext="jpg" ratio="1/1" />
+				<AddToCart type="primary">В корзину!</AddToCart>
+			</ImageWrapper>
 			<ProductTitle>{title}</ProductTitle>
 			<Description>{description}</Description>
 			<Complexity>Сложность: {complexity} фингербаллов</Complexity>
 			<Price>${price}</Price>
-			<Button>Подробнее</Button>
-			<Button type="primary">Купить табы</Button>
 		</ProductTileStyled>
 	);
 };

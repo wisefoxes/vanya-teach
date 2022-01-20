@@ -1,5 +1,6 @@
 import { rem } from 'polished';
 import styled from 'styled-components';
+import { Button } from 'ui-kit/atoms/button';
 
 const ProductTileStyled = styled.div`
 	display: flex;
@@ -14,6 +15,10 @@ const ProductTitle = styled.div`
 	flex-grow: 1;
 `;
 
+const ImageWrapper = styled.div`
+	position: relative;
+`;
+
 const Description = styled.div`
 	color: var(--color__basic-500);
 `;
@@ -26,4 +31,12 @@ const Price = styled.div`
 	font-size: ${rem(20)};
 `;
 
-export { ProductTileStyled, ProductTitle, Description, Complexity, Price };
+const AddToCart = styled(Button)`
+	position: absolute;
+	bottom: ${rem(10)};
+	width: 90%;
+	transform: translateX(-50%);
+	left: 50%;
+`;
+
+export { ProductTileStyled, ProductTitle, ImageWrapper, Description, Complexity, Price, AddToCart };
