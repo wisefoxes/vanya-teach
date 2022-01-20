@@ -4,7 +4,8 @@ import { BodyAttached } from 'ui-kit/atoms/body-attached';
 import { useLocationChange } from 'lib/url/location';
 import { Logo } from './logo';
 import { Hamburger } from './hamburger';
-import { HeaderContent, HeaderStyled, MobileMenuAnimated, MobileMenuTransitionTime, OverlayAnimated } from './Header.style';
+import { HeaderContent, HeaderStyled, MobileMenuAnimated, MobileMenuTransitionTime, OverlayAnimated, RightMenu } from './Header.style';
+import { CartButton } from './cart-button';
 const Header: FC = () => {
 	const [open, setOpen] = useState(false);
 	const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -31,7 +32,10 @@ const Header: FC = () => {
 		<HeaderStyled>
 			<HeaderContent>
 				<Logo />
-				<Hamburger open={open} onClick={clickHamburgerHandler} />
+				<RightMenu>
+					<CartButton />
+					<Hamburger open={open} onClick={clickHamburgerHandler} />
+				</RightMenu>
 				{menu}
 			</HeaderContent>
 		</HeaderStyled>

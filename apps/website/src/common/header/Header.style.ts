@@ -57,4 +57,9 @@ const HeaderContent = styled.div`
 	align-items: center;
 `;
 
-export { HeaderStyled, HeaderContent, MobileMenuAnimated, OverlayAnimated, MobileMenuTransitionTime };
+const RightMenu = styled.div`
+	display: flex;
+	gap: ${rem(10)};
+`;
+
+export { HeaderStyled, HeaderContent, MobileMenuAnimated, OverlayAnimated, MobileMenuTransitionTime, RightMenu };

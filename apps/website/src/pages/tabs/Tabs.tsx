@@ -17,7 +17,7 @@ const Tabs: FC = () => {
 				<SelectTabs to="#tabs" size="large">
 					Выбрать табы
 				</SelectTabs>
-				<ResponsiveImage name="vanya-guitar2" staticHost={staticHost} breakpoints={{ s: 500 }} ext="png" ratio="500/291" />
+				<ResponsiveImage name="vanya-guitar2" staticHost={staticHost} breakpoints={{ s: 727 }} ext="png" ratio="727/423" />
 			</TopSection>
 			<Popular />
 			<Latest />
