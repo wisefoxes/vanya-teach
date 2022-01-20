@@ -34,7 +34,7 @@ const Price = styled.div`
 const AddToCart = styled(Button)`
 	position: absolute;
 	bottom: ${rem(10)};
-	width: 90%;
+	width: min(90%, ${rem(250)});
 	transform: translateX(-50%);
 	left: 50%;
 `;

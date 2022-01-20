@@ -15,7 +15,7 @@ const ProductTile: FC<Props> = (props: Props) => {
 	return (
 		<ProductTileStyled>
 			<ImageWrapper>
-				<ResponsiveImage name="hozier" breakpoints={{ s: 300 }} ext="jpg" ratio="1/1" />
+				<ResponsiveImage name="hozier" breakpoints={{ s: 353 }} ext="jpg" ratio="1/1" />
 				<AddToCart type="primary">В корзину!</AddToCart>
 			</ImageWrapper>
 			<ProductTitle>{title}</ProductTitle>
