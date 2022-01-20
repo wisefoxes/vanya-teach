@@ -1,16 +1,22 @@
 import { FC, HTMLAttributes, PropsWithRef } from 'react';
-import { NavigationLink, NavigationList, NavigationStyled } from './MobileMenu.style';
+import { NavigationLink, MenuList, NavigationStyled, Divider, MenuButton } from './MobileMenu.style';
 
 type Props = HTMLAttributes<HTMLElement>;
 
 const MobileMenu: FC<PropsWithRef<Props>> = (props: Props) => {
 	return (
 		<NavigationStyled {...props}>
-			<NavigationList>
+			<MenuList>
 				<li>
 					<NavigationLink to="/tabs">Табы</NavigationLink>
 				</li>
-			</NavigationList>
+			</MenuList>
+			<Divider />
+			<MenuList>
+				<li>
+					<MenuButton>Войти</MenuButton>
+				</li>
+			</MenuList>
 		</NavigationStyled>
 	);
 };
