@@ -1,9 +1,5 @@
-import { transitionValue } from 'design/tools/transitions';
 import { rem } from 'polished';
-import { TransitionStatus } from 'react-transition-group';
-import styled, { css } from 'styled-components';
-import { Overlay } from 'ui-kit/atoms/overlay';
-import { MobileMenu } from './mobile-menu';
+import styled from 'styled-components';
 
 const MobileMenuTransitionTime = 300;
 
@@ -16,37 +12,6 @@ const HeaderStyled = styled.header`
 	padding: ${rem(20)};
 	box-sizing: border-box;
 	z-index: 3;
-`;
-
-const MobileMenuAnimated = styled(MobileMenu)<{ transitionStatus: TransitionStatus }>`
-	position: fixed;
-	top: ${rem(69)};
-	width: 100%;
-	z-index: 2;
-	left: 0;
-	transition: transform ${MobileMenuTransitionTime}ms ease-in-out;
-
-	${transitionValue(
-		css`
-			transform: translateY(-100%);
-		`,
-		css`
-			transform: translateY(0);
-		`,
-	)};
-`;
-
-const OverlayAnimated = styled(Overlay)<{ transitionStatus: TransitionStatus }>`
-	transition: opacity ${MobileMenuTransitionTime}ms ease-in-out;
-
-	${transitionValue(
-		css`
-			opacity: 0;
-		`,
-		css`
-			opacity: 0.4;
-		`,
-	)}
 `;
 
 const HeaderContent = styled.div`
@@ -62,4 +27,4 @@ const RightMenu = styled.div`
 	gap: ${rem(10)};
 `;
 
-export { HeaderStyled, HeaderContent, MobileMenuAnimated, OverlayAnimated, MobileMenuTransitionTime, RightMenu };
+export { HeaderStyled, HeaderContent, MobileMenuTransitionTime, RightMenu };

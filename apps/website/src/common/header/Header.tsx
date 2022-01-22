@@ -1,14 +1,14 @@
-import { FC, useRef, useState } from 'react';
-import { Transition } from 'react-transition-group';
-import { BodyAttached } from 'ui-kit/atoms/body-attached';
+import { FC, useState } from 'react';
 import { useLocationChange } from 'lib/url/location';
 import { Logo } from 'ui-kit/atoms/logo';
+import { Dialog } from 'ui-kit/molecules/dialog';
 import { Hamburger } from './hamburger';
-import { HeaderContent, HeaderStyled, MobileMenuAnimated, MobileMenuTransitionTime, OverlayAnimated, RightMenu } from './Header.style';
+import { HeaderContent, HeaderStyled, RightMenu } from './Header.style';
 import { CartButton } from './cart-button';
+import { MobileMenu } from './mobile-menu';
+
 const Header: FC = () => {
 	const [open, setOpen] = useState(false);
-	const mobileMenuRef = useRef<HTMLDivElement>(null);
 
 	const clickHamburgerHandler = (): void => setOpen(!open);
 	const clickOverlayHandler = (): void => setOpen(false);
@@ -16,16 +16,9 @@ const Header: FC = () => {
 	useLocationChange(() => setOpen(false));
 
 	const menu = (
-		<Transition nodeRef={mobileMenuRef} in={open} timeout={{ exit: MobileMenuTransitionTime }} mountOnEnter unmountOnExit>
-			{(state): JSX.Element => (
-				<BodyAttached>
-					<div ref={mobileMenuRef}>
-						<MobileMenuAnimated transitionStatus={state} />
-						<OverlayAnimated transitionStatus={state} onClick={clickOverlayHandler} />
-					</div>
-				</BodyAttached>
-			)}
-		</Transition>
+		<Dialog open={open} onOverlayClick={clickOverlayHandler} onClose={clickOverlayHandler}>
+			<MobileMenu />
+		</Dialog>
 	);
 
 	return (
@@ -34,7 +27,7 @@ const Header: FC = () => {
 				<Logo />
 				<RightMenu>
 					<CartButton />
-					<Hamburger open={open} onClick={clickHamburgerHandler} />
+					<Hamburger onClick={clickHamburgerHandler} />
 				</RightMenu>
 				{menu}
 			</HeaderContent>

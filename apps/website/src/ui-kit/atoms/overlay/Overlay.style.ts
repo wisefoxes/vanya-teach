@@ -8,7 +8,7 @@ const OverlayStyled = styled.div`
 	height: 100vh;
 	background-color: var(--color__basic-900);
 	opacity: 0.4;
-	z-index: 1;
+	cursor: pointer;
 `;
 
 export { OverlayStyled };
