@@ -19,7 +19,6 @@ const Modal = styled.div<{ transitionStatus: TransitionStatus }>`
 	background-color: var(--color__basic-100);
 	position: absolute;
 	width: 100%;
-	padding: ${rem(30)} ${rem(20)};
 	box-sizing: border-box;
 	transition: transform ${DialogTransitionTime}ms ease-in-out;
 
