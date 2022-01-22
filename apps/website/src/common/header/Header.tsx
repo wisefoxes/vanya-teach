@@ -2,7 +2,7 @@ import { FC, useRef, useState } from 'react';
 import { Transition } from 'react-transition-group';
 import { BodyAttached } from 'ui-kit/atoms/body-attached';
 import { useLocationChange } from 'lib/url/location';
-import { Logo } from './logo';
+import { Logo } from 'ui-kit/atoms/logo';
 import { Hamburger } from './hamburger';
 import { HeaderContent, HeaderStyled, MobileMenuAnimated, MobileMenuTransitionTime, OverlayAnimated, RightMenu } from './Header.style';
 import { CartButton } from './cart-button';
