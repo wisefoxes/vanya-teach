@@ -13,10 +13,12 @@ const CartUpdate: FC = () => {
 	const [open, setOpen] = useState(true);
 	const { staticHost } = useStaticInfo();
 
-	useDebouncedExecution(() => setOpen(false), CLOSE_CART_TIMEOUT);
+	const closeHandler = (): void => setOpen(false);
+
+	useDebouncedExecution(closeHandler, CLOSE_CART_TIMEOUT);
 
 	return (
-		<Dialog open={open}>
+		<Dialog open={open} onClose={closeHandler}>
 			<CartUpdateStyled>
 				<Title level={4}>Добавлено в корзину</Title>
 				<Content>

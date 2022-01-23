@@ -6,13 +6,13 @@ import { ReactComponent as CrossIcon } from 'ui-kit/icons/cross.svg';
 import { CrossButton, DialogLayer, DialogTransitionTime, Modal, OverlayAnimated } from './Dialog.style';
 
 type Props = {
+	onClose: () => void;
 	onOverlayClick?: () => void;
-	onClose?: () => void;
 	open?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 const Dialog: FC<Props> = (props: Props) => {
-	const { onOverlayClick, onClose, open = false, children } = props;
+	const { onClose, onOverlayClick = onClose, open = false, children } = props;
 	const modalRef = useRef<HTMLDivElement>(null);
 
 	useScrollLock(open);
