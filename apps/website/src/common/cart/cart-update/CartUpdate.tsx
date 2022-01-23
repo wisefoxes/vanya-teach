@@ -1,16 +1,22 @@
 import { useStaticInfo } from 'core/static/static-context';
-import { FC } from 'react';
+import { useDebouncedExecution } from 'lib/utils/debounce';
+import { FC, useState } from 'react';
 import { Button } from 'ui-kit/atoms/button';
 import { Divider } from 'ui-kit/atoms/divider';
 import { ResponsiveImage } from 'ui-kit/atoms/responsive-image';
 import { Dialog } from 'ui-kit/molecules/dialog';
 import { CartUpdateStyled, Content, Subtotal, Title } from './CartUpdate.style';
 
+const CLOSE_CART_TIMEOUT = 10000;
+
 const CartUpdate: FC = () => {
+	const [open, setOpen] = useState(true);
 	const { staticHost } = useStaticInfo();
 
+	useDebouncedExecution(() => setOpen(false), CLOSE_CART_TIMEOUT);
+
 	return (
-		<Dialog>
+		<Dialog open={open}>
 			<CartUpdateStyled>
 				<Title level={4}>Добавлено в корзину</Title>
 				<Content>
