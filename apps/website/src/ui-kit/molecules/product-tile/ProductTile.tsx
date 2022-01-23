@@ -7,16 +7,23 @@ type Props = {
 	description?: string;
 	complexity?: number;
 	price?: number;
+	onAddToCart?: (id: string) => void;
 } & HTMLAttributes<HTMLDivElement>;
 
 const ProductTile: FC<Props> = (props: Props) => {
-	const { title, description = '', complexity = 7, price } = props;
+	const { title, description = '', complexity = 7, price, onAddToCart } = props;
+
+	const clickAddToCartHandler = (): void => {
+		onAddToCart && onAddToCart(title);
+	};
 
 	return (
 		<ProductTileStyled>
 			<ImageWrapper>
 				<ResponsiveImage name="hozier" breakpoints={{ s: 353 }} ext="jpg" ratio="1/1" />
-				<AddToCart type="primary">В корзину!</AddToCart>
+				<AddToCart type="primary" onClick={clickAddToCartHandler}>
+					В корзину!
+				</AddToCart>
 			</ImageWrapper>
 			<ProductTitle>{title}</ProductTitle>
 			<Description>{description}</Description>

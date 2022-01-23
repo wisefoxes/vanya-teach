@@ -2,6 +2,7 @@ import { rem } from 'polished';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from 'ui-kit/atoms/button';
+import { Divider } from 'ui-kit/atoms/divider';
 
 const NavigationStyled = styled.nav`
 	background-color: var(--color__basic-100);
@@ -29,13 +30,8 @@ const MenuButton = styled(Button)`
 	margin: 0 auto;
 `;
 
-const Divider = styled.hr`
-	height: 2px;
-	background: var(--color__basic-200);
-	display: block;
-	width: 100%;
-	border: none;
-	margin: ${rem(10)} 0 ${rem(20)};
+const Separator = styled(Divider)`
+	height: ${rem(2)};
 `;
 
-export { NavigationStyled, MenuList, NavigationLink, Divider, MenuButton };
+export { NavigationStyled, MenuList, NavigationLink, Separator, MenuButton };
