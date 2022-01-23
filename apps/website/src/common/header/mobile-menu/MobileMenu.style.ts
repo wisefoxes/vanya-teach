@@ -10,6 +10,7 @@ const NavigationStyled = styled.nav`
 	display: flex;
 	box-sizing: border-box;
 	flex-direction: column;
+	gap: ${rem(10)};
 `;
 
 const MenuList = styled.ul`

@@ -10,7 +10,7 @@ const CartUpdate: FC = () => {
 	const { staticHost } = useStaticInfo();
 
 	return (
-		<Dialog open>
+		<Dialog>
 			<CartUpdateStyled>
 				<Title level={4}>Добавлено в корзину</Title>
 				<Content>
