@@ -1,3 +1,3 @@
 import { RootState } from 'store/store';
 
-export const selectCartItems = (state: RootState): string[] => Object.keys(state.cart.items);
+export const selectCartUpdateVisible = (state: RootState): boolean => state.cart.cartUpdateVisible;

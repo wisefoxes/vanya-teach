@@ -7,14 +7,14 @@ type Props = {
 	description?: string;
 	complexity?: number;
 	price?: number;
-	onAddToCart?: (id: string) => void;
+	onAddToCart?: () => void;
 } & HTMLAttributes<HTMLDivElement>;
 
 const ProductTile: FC<Props> = (props: Props) => {
 	const { title, description = '', complexity = 7, price, onAddToCart } = props;
 
 	const clickAddToCartHandler = (): void => {
-		onAddToCart && onAddToCart(title);
+		onAddToCart && onAddToCart();
 	};
 
 	return (

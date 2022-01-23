@@ -1,6 +1,9 @@
 import { useStaticInfo } from 'core/static/static-context';
 import { useDebouncedExecution } from 'lib/utils/debounce';
-import { FC, useState } from 'react';
+import { FC } from 'react';
+import { cartActions } from 'store/cart';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { selectCartUpdateVisible } from 'store/selectors/cart';
 import { Button } from 'ui-kit/atoms/button';
 import { Divider } from 'ui-kit/atoms/divider';
 import { ResponsiveImage } from 'ui-kit/atoms/responsive-image';
@@ -10,15 +13,18 @@ import { CartUpdateStyled, Content, Subtotal, Title } from './CartUpdate.style';
 const CLOSE_CART_TIMEOUT = 10000;
 
 const CartUpdate: FC = () => {
-	const [open, setOpen] = useState(true);
+	const cartUpdateVisible = useAppSelector(selectCartUpdateVisible);
+	const dispatch = useAppDispatch();
 	const { staticHost } = useStaticInfo();
 
-	const closeHandler = (): void => setOpen(false);
+	const closeHandler = (): void => {
+		dispatch(cartActions.resetCartUpdate());
+	};
 
 	useDebouncedExecution(closeHandler, CLOSE_CART_TIMEOUT);
 
 	return (
-		<Dialog open={open} onClose={closeHandler}>
+		<Dialog open={cartUpdateVisible} onClose={closeHandler}>
 			<CartUpdateStyled>
 				<Title level={4}>Добавлено в корзину</Title>
 				<Content>

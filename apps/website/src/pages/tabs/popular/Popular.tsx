@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { addToCartAsync } from 'store/cart/cart-thunks';
+import { cartActions } from 'store/cart';
 import { useAppDispatch } from 'store/hooks';
 import { Heading } from 'ui-kit/atoms/heading';
 import { ProductsGrid } from 'ui-kit/atoms/products-grid';
@@ -9,8 +9,8 @@ import { PopularStyled } from './Popular.style';
 const Popular: FC = () => {
 	const dispatch = useAppDispatch();
 
-	const clickAddToCartHandler = (id: string): void => {
-		dispatch(addToCartAsync(id));
+	const clickAddToCartHandler = (): void => {
+		dispatch(cartActions.addToCart());
 	};
 
 	return (

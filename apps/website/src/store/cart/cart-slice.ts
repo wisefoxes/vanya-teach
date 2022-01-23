@@ -6,6 +6,7 @@ type CartState = {
 	items: {
 		[k in string]: boolean;
 	};
+	cartUpdateVisible: boolean;
 };
 
 const cartSlice = createSlice({
@@ -13,8 +14,16 @@ const cartSlice = createSlice({
 	initialState: {
 		items: {},
 		addingItem: false,
+		cartUpdateVisible: false,
 	} as CartState,
-	reducers: {},
+	reducers: {
+		addToCart: (state) => {
+			state.cartUpdateVisible = true;
+		},
+		resetCartUpdate: (state) => {
+			state.cartUpdateVisible = false;
+		},
+	},
 	extraReducers: (builder) => {
 		builder.addCase(addToCartAsync.pending, (state) => {
 			state.addingItem = true;
