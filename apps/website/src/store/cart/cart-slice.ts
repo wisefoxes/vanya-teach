@@ -1,32 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Product } from 'types/product';
 import { addToCartAsync } from './cart-thunks';
 
 type CartState = {
-	addingItem: boolean;
 	items: {
-		[k in string]: boolean;
+		[k in string]: Product;
 	};
-	cartUpdateVisible: boolean;
+	updating: boolean;
+	addedProduct: Product | null;
 };
 
 const cartSlice = createSlice({
 	name: 'cart',
 	initialState: {
 		items: {},
-		addingItem: false,
-		cartUpdateVisible: false,
+		addedProduct: null,
 	} as CartState,
 	reducers: {
-		addToCart: (state) => {
-			state.cartUpdateVisible = true;
+		resetUpdating: (state) => {
+			state.updating = false;
 		},
-		resetCartUpdate: (state) => {
-			state.cartUpdateVisible = false;
+		resetAddedProduct: (state) => {
+			state.addedProduct = null;
 		},
 	},
 	extraReducers: (builder) => {
-		builder.addCase(addToCartAsync.pending, (state) => {
-			state.addingItem = true;
+		builder.addCase(addToCartAsync.fulfilled, (state, { payload }) => {
+			state.updating = true;
+			state.addedProduct = payload;
 		});
 	},
 });

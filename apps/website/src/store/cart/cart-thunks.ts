@@ -1,16 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { fetchAddProductToCart } from 'api/cart';
+import { Product } from 'types/product';
 
-const addToCartAsync = createAsyncThunk<
-	{
-		id: '123';
-	},
-	string
->(
-	'cart/add',
-	async (_id: string) =>
-		await Promise.resolve({
-			id: '123',
-		}),
-);
+const addToCartAsync = createAsyncThunk<Product, Product>('cart/add', async (product: Product) => await fetchAddProductToCart(product));
 
 export { addToCartAsync };

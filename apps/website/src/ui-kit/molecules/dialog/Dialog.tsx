@@ -9,16 +9,17 @@ type Props = {
 	onClose: () => void;
 	onOverlayClick?: () => void;
 	open?: boolean;
+	onClosed?: () => void;
 } & HTMLAttributes<HTMLDivElement>;
 
 const Dialog: FC<Props> = (props: Props) => {
-	const { onClose, onOverlayClick = onClose, open = false, children } = props;
+	const { onClose, onOverlayClick = onClose, onClosed, open = false, children } = props;
 	const modalRef = useRef<HTMLDivElement>(null);
 
 	useScrollLock(open);
 
 	return (
-		<Transition nodeRef={modalRef} in={open} timeout={{ exit: DialogTransitionTime }} mountOnEnter unmountOnExit>
+		<Transition nodeRef={modalRef} in={open} timeout={{ exit: DialogTransitionTime }} mountOnEnter unmountOnExit onExited={onClosed}>
 			{(state): JSX.Element => (
 				<BodyAttached>
 					<DialogLayer ref={modalRef}>

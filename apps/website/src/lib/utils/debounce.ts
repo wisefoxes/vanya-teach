@@ -26,7 +26,7 @@ function useDebouncedExecution(fn: (...args: any[]) => any, timeout = 300, deps 
 		debouncedFn();
 
 		return (): void => unsubscribe();
-	}, [debouncedFn, unsubscribe, fn, ...deps]);
+	}, [debouncedFn, fn, unsubscribe, ...deps]);
 }
 
 export { debounce, useDebouncedExecution };
