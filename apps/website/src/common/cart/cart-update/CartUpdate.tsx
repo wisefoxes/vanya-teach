@@ -14,7 +14,7 @@ const CartUpdate: FC = () => {
 	const productContent = product && (
 		<Content>
 			<ResponsiveImage name="image" staticHost={staticHost} breakpoints={{ s: 200 }} ratio="1/1" />
-			<div>Hozier - Take me to church. Формат: PDF + GPX Сложность: 9 фингербаллов</div>
+			<div>{product.name}</div>
 			<div>${product.price}</div>
 		</Content>
 	);
