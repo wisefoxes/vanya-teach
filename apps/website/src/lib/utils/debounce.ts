@@ -9,7 +9,6 @@ function debounce(fn: (...args: any[]) => any, timeout = 300): [(...args: Parame
 		(...args: Parameters<typeof fn>): ReturnType<typeof fn> => {
 			clearTimeout(timer);
 			timer = window.setTimeout(() => {
-				console.log('executed');
 				fn.apply({}, args);
 			}, timeout);
 		},
