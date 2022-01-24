@@ -1,32 +1,20 @@
-import { useEffect } from 'react';
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
-function debounce(fn: (...args: any[]) => any, timeout = 300): [(...args: Parameters<typeof fn>) => ReturnType<typeof fn>, () => void] {
-	let timer: number;
+
+type UnsubscribeFn = () => void;
+
+function debounce(fn: (...args: any[]) => any, timeout = 300): [(...args: Parameters<typeof fn>) => ReturnType<typeof fn>, UnsubscribeFn] {
+	let timer = 0;
 
 	return [
 		(...args: Parameters<typeof fn>): ReturnType<typeof fn> => {
 			clearTimeout(timer);
 			timer = window.setTimeout(() => {
+				console.log('executed');
 				fn.apply({}, args);
 			}, timeout);
 		},
-		(): void => {
-			if (timer) {
-				clearTimeout(timer);
-			}
-		},
+		(): void => window.clearTimeout(timer),
 	];
 }
 
-function useDebouncedExecution(fn: (...args: any[]) => any, timeout = 300, deps = []): void {
-	const [debouncedFn, unsubscribe] = debounce(fn, timeout);
-
-	useEffect(() => {
-		debouncedFn();
-
-		return (): void => unsubscribe();
-	}, [debouncedFn, fn, unsubscribe, ...deps]);
-}
-
-export { debounce, useDebouncedExecution };
+export { debounce, UnsubscribeFn };
