@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { cartReducer, cartReducerName } from './cart';
+import { tabsReducer, tabsReducerName } from './tabs';
 
 const store = configureStore({
 	reducer: {
 		[cartReducerName]: cartReducer,
+		[tabsReducerName]: tabsReducer,
 	},
 });
 
