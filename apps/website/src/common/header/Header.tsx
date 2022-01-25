@@ -1,32 +1,23 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Logo } from 'ui-kit/atoms/logo';
-import { Dialog } from 'ui-kit/molecules/dialog';
+import { useOpener } from 'lib/hooks/opener';
 import { Hamburger } from './hamburger';
 import { HeaderContent, HeaderStyled, RightMenu } from './Header.style';
 import { CartButton } from './cart-button';
 import { MobileMenu } from './mobile-menu';
 
 const Header: FC = () => {
-	const [open, setOpen] = useState(false);
-
-	const clickHamburgerHandler = (): void => setOpen(true);
-	const closeMobileMenuHandler = (): void => setOpen(false);
-
-	const menu = (
-		<Dialog open={open} onOverlayClick={closeMobileMenuHandler} onClose={closeMobileMenuHandler}>
-			<MobileMenu onClose={closeMobileMenuHandler} />
-		</Dialog>
-	);
+	const { open, close, isOpen } = useOpener();
 
 	return (
 		<HeaderStyled>
+			<MobileMenu open={isOpen} onClose={close} />
 			<HeaderContent>
 				<Logo />
 				<RightMenu>
 					<CartButton />
-					<Hamburger onClick={clickHamburgerHandler} />
+					<Hamburger onClick={open} />
 				</RightMenu>
-				{menu}
 			</HeaderContent>
 		</HeaderStyled>
 	);
