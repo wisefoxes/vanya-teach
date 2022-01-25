@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 
-function useScrollLock(lock = false): void {
+function useScrollLock(): void {
 	useEffect(() => {
-		if (lock) {
-			document.body.style.overflow = 'hidden';
-		} else {
+		document.body.style.overflow = 'hidden';
+
+		return (): void => {
 			document.body.style.overflow = 'auto';
-		}
-	}, [lock]);
+		};
+	}, []);
 }
 
 export { useScrollLock };

@@ -1,4 +1,5 @@
 import { Footer } from 'common/footer/Footer';
+import { GlobalDialogs } from 'common/global-dialogs';
 import { Header } from 'common/header';
 import { About } from 'pages/about';
 import { Courses } from 'pages/courses';
@@ -11,6 +12,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 const App: FC = () => {
 	return (
 		<>
+			<GlobalDialogs />
 			<Header />
 			<Routes>
 				<Route path="/" element={<Home />} />

@@ -9,9 +9,11 @@ import { MobileMenu } from './mobile-menu';
 const Header: FC = () => {
 	const { open, close, isOpen } = useOpener();
 
+	const mobileMenu = isOpen && <MobileMenu onClose={close} />;
+
 	return (
 		<HeaderStyled>
-			<MobileMenu open={isOpen} onClose={close} />
+			{mobileMenu}
 			<HeaderContent>
 				<Logo />
 				<RightMenu>

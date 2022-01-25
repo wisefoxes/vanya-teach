@@ -4,17 +4,16 @@ import { Dialog } from 'ui-kit/molecules/dialog';
 import { NavigationLink, MenuList, NavigationStyled, Separator, MenuButton } from './MobileMenu.style';
 
 type Props = {
-	open?: boolean;
 	onClose: () => void;
 } & HTMLAttributes<HTMLElement>;
 
 const MobileMenu: FC<Props> = (props: Props) => {
-	const { open = false, onClose } = props;
+	const { onClose } = props;
 
 	useLocationChange(onClose);
 
 	return (
-		<Dialog open={open} onClose={onClose}>
+		<Dialog onClose={onClose}>
 			<NavigationStyled {...props}>
 				<MenuList>
 					<li>

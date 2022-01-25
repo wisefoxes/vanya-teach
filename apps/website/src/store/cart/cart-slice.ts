@@ -6,7 +6,6 @@ type CartState = {
 	items: {
 		[k in string]: Product;
 	};
-	updating: boolean;
 	addedProduct: Product | null;
 };
 
@@ -17,16 +16,12 @@ const cartSlice = createSlice({
 		addedProduct: null,
 	} as CartState,
 	reducers: {
-		resetUpdating: (state) => {
-			state.updating = false;
-		},
 		resetAddedProduct: (state) => {
 			state.addedProduct = null;
 		},
 	},
 	extraReducers: (builder) => {
 		builder.addCase(addToCartAsync.fulfilled, (state, { payload }) => {
-			state.updating = true;
 			state.addedProduct = payload;
 		});
 	},

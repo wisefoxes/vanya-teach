@@ -1,4 +1,3 @@
-import { CartUpdate } from 'common/cart/cart-update';
 import { useStaticInfo } from 'core/static/static-context';
 import { FC } from 'react';
 import { ResponsiveImage } from 'ui-kit/atoms/responsive-image';
@@ -12,7 +11,6 @@ const Tabs: FC = () => {
 
 	return (
 		<TabsStyled>
-			<CartUpdate />
 			<TopSection>
 				<TitleStyled>Табы от Вани!</TitleStyled>
 				<DescriptionStyled>В каталоге имеется более 40 табов различных композиций от самых популярных исполнителей</DescriptionStyled>

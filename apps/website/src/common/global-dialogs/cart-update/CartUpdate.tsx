@@ -9,7 +9,7 @@ import { useCartUpdate } from './hooks';
 
 const CartUpdate: FC = () => {
 	const { staticHost } = useStaticInfo();
-	const { open, close, resetProduct, product } = useCartUpdate();
+	const { close, product } = useCartUpdate();
 
 	const productContent = product && (
 		<Content>
@@ -20,7 +20,7 @@ const CartUpdate: FC = () => {
 	);
 
 	return (
-		<Dialog open={open} onClose={close} onClosed={resetProduct}>
+		<Dialog onClose={close}>
 			<CartUpdateStyled>
 				<Title level={4}>Добавлено в корзину</Title>
 				{productContent}
