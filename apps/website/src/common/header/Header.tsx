@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-import { useLocationChange } from 'lib/url/location';
 import { Logo } from 'ui-kit/atoms/logo';
 import { Dialog } from 'ui-kit/molecules/dialog';
 import { Hamburger } from './hamburger';
@@ -10,14 +9,12 @@ import { MobileMenu } from './mobile-menu';
 const Header: FC = () => {
 	const [open, setOpen] = useState(false);
 
-	const clickHamburgerHandler = (): void => setOpen(!open);
-	const clickOverlayHandler = (): void => setOpen(false);
-
-	useLocationChange(() => setOpen(false));
+	const clickHamburgerHandler = (): void => setOpen(true);
+	const closeMobileMenuHandler = (): void => setOpen(false);
 
 	const menu = (
-		<Dialog open={open} onOverlayClick={clickOverlayHandler} onClose={clickOverlayHandler}>
-			<MobileMenu />
+		<Dialog open={open} onOverlayClick={closeMobileMenuHandler} onClose={closeMobileMenuHandler}>
+			<MobileMenu onClose={closeMobileMenuHandler} />
 		</Dialog>
 	);
 

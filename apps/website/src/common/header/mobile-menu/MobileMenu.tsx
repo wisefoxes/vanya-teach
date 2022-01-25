@@ -1,9 +1,16 @@
-import { FC, HTMLAttributes, PropsWithRef } from 'react';
+import { useLocationChange } from 'lib/url/location';
+import { FC, HTMLAttributes } from 'react';
 import { NavigationLink, MenuList, NavigationStyled, Separator, MenuButton } from './MobileMenu.style';
 
-type Props = HTMLAttributes<HTMLElement>;
+type Props = {
+	onClose: () => void;
+} & HTMLAttributes<HTMLElement>;
 
-const MobileMenu: FC<PropsWithRef<Props>> = (props: Props) => {
+const MobileMenu: FC<Props> = (props: Props) => {
+	const { onClose } = props;
+
+	useLocationChange(onClose);
+
 	return (
 		<NavigationStyled {...props}>
 			<MenuList>

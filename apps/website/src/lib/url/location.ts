@@ -1,10 +1,16 @@
+import { usePrevious } from 'lib/hooks/previous';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function useLocationChange(callback: () => void): void {
-	const location = useLocation();
+	const { pathname } = useLocation();
+	const prevPathname = usePrevious(pathname);
 
-	useEffect(callback, [location.pathname]);
+	useEffect(() => {
+		if (prevPathname !== undefined && prevPathname !== pathname) {
+			callback();
+		}
+	}, [pathname, prevPathname, callback]);
 }
 
 export { useLocationChange };
