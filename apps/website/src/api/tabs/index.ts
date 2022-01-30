@@ -38,4 +38,12 @@ async function fetchTabs(): Promise<Product[]> {
 	return data;
 }
 
-export { fetchPopularTabs, fetchLatestTabs, fetchTabs };
+async function fetchTabById(id: string): Promise<Product> {
+	const { data } = await Promise.resolve({
+		data: { id: id, name: 'Linkin Park - Numb', price: 499 },
+	});
+
+	return data;
+}
+
+export { fetchPopularTabs, fetchLatestTabs, fetchTabs, fetchTabById };

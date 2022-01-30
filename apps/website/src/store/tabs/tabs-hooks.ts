@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { selectAllTabs, selectLatestTabs, selectPopularTabs } from 'store/selectors/tabs';
+import { selectAllTabs, selectLatestTabs, selectPopularTabs, selectTabDetails } from 'store/selectors/tabs';
 import { Product } from 'types/product';
-import { getAllTabsAsync, getLatestTabsAsync, getPopularTabsAsync } from './tabs-thunks';
+import { getAllTabsAsync, getLatestTabsAsync, getPopularTabsAsync, getTabByIdAsync } from './tabs-thunks';
 
 function useAllTabs(): Product[] {
 	const dispatch = useAppDispatch();
@@ -37,4 +37,15 @@ function usePopularTabs(): Product[] {
 	return tabs;
 }
 
-export { useAllTabs, useLatestTabs, usePopularTabs };
+function useTabDetails(id: string): Product | null {
+	const tab = useAppSelector(selectTabDetails);
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		dispatch(getTabByIdAsync(id));
+	}, [dispatch, id]);
+
+	return tab;
+}
+
+export { useAllTabs, useLatestTabs, usePopularTabs, useTabDetails };
