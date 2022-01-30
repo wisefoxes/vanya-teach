@@ -5,7 +5,7 @@ import { Product } from 'types/product';
 import { Heading } from 'ui-kit/atoms/heading';
 import { ProductsGrid } from 'ui-kit/atoms/products-grid';
 import { ProductTile } from 'ui-kit/molecules/product-tile';
-import { FullListStyled } from './FullList.style';
+import { FullListStyled, ProductLink } from './FullList.style';
 
 const FullList: FC = () => {
 	const tabs = useAllTabs();
@@ -14,7 +14,9 @@ const FullList: FC = () => {
 	const clickAddToCartHandler = (product: Product) => (): void => addToCart(product);
 
 	const products = tabs.map((tab) => (
-		<ProductTile key={tab.id} title={tab.name} price={tab.price} onAddToCart={clickAddToCartHandler(tab)} />
+		<ProductLink key={tab.id} to={tab.id}>
+			<ProductTile key={tab.id} title={tab.name} price={tab.price} onAddToCart={clickAddToCartHandler(tab)} />
+		</ProductLink>
 	));
 
 	return (

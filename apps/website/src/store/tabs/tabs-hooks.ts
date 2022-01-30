@@ -9,8 +9,10 @@ function useAllTabs(): Product[] {
 	const tabs = useAppSelector(selectAllTabs);
 
 	useEffect(() => {
-		dispatch(getAllTabsAsync());
-	}, [dispatch]);
+		if (tabs.length === 0) {
+			dispatch(getAllTabsAsync());
+		}
+	}, [dispatch, tabs.length]);
 
 	return tabs;
 }
@@ -20,8 +22,10 @@ function useLatestTabs(): Product[] {
 	const tabs = useAppSelector(selectLatestTabs);
 
 	useEffect(() => {
-		dispatch(getLatestTabsAsync());
-	}, []);
+		if (tabs.length === 0) {
+			dispatch(getLatestTabsAsync());
+		}
+	}, [dispatch, tabs.length]);
 
 	return tabs;
 }
@@ -31,8 +35,10 @@ function usePopularTabs(): Product[] {
 	const tabs = useAppSelector(selectPopularTabs);
 
 	useEffect(() => {
-		dispatch(getPopularTabsAsync());
-	}, [dispatch]);
+		if (tabs.length === 0) {
+			dispatch(getPopularTabsAsync());
+		}
+	}, [dispatch, tabs.length]);
 
 	return tabs;
 }
