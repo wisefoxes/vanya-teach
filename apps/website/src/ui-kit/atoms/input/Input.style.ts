@@ -2,8 +2,10 @@ import { rem } from 'polished';
 import styled, { css } from 'styled-components';
 import type { InputType } from './types';
 
-const InputStyled = styled.input.attrs<{ $type: InputType }, { $primary: boolean }>(({ $type }) => ({ $primary: $type === 'primary' }))<{
-	$type: InputType;
+const InputStyled = styled.input.attrs<{ $appearance: InputType }, { $primary: boolean }>(({ $appearance }) => ({
+	$primary: $appearance === 'primary',
+}))<{
+	$appearance: InputType;
 }>`
 	${({ $primary }) => css`
 		--bg-color: var(--color__basic-100);

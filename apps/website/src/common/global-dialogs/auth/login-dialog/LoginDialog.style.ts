@@ -7,10 +7,16 @@ const LoginDialogStyled = styled.section`
 	gap: ${rem(15)};
 `;
 
+const LoginForm = styled.form`
+	display: flex;
+	flex-direction: column;
+	gap: ${rem(20)};
+`;
+
 const SignLabel = styled.div`
 	text-align: center;
 	font-size: ${rem(18)};
 	font-weight: var(--font-weight__light);
 `;
 
-export { LoginDialogStyled, SignLabel };
+export { LoginDialogStyled, LoginForm, SignLabel };
