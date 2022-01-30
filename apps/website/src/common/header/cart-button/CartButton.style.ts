@@ -8,6 +8,7 @@ const CartButtonStyled = styled.button`
 	align-items: center;
 	padding: ${rem(6)};
 	width: ${rem(35)};
+	cursor: pointer;
 `;
 
 export { CartButtonStyled };
