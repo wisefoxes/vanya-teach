@@ -18,6 +18,8 @@ const ForgotPasswordForm = styled.form`
 
 const ReturnBackButton = styled(TextButton)`
 	margin-top: ${rem(20)};
+	width: fit-content;
+	align-self: center;
 `;
 
 export { ForgotPasswordDialogStyled, ForgotPasswordForm, ReturnBackButton };
