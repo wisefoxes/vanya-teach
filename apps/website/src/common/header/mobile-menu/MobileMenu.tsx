@@ -1,5 +1,6 @@
 import { useLocationChange } from 'lib/url/location';
 import { FC, HTMLAttributes } from 'react';
+import { useAuth } from 'store/auth';
 import { Dialog } from 'ui-kit/molecules/dialog';
 import { NavigationLink, MenuList, NavigationStyled, Separator, MenuButton } from './MobileMenu.style';
 
@@ -9,8 +10,14 @@ type Props = {
 
 const MobileMenu: FC<Props> = (props: Props) => {
 	const { onClose } = props;
+	const { open: openAuth } = useAuth();
 
 	useLocationChange(onClose);
+
+	const clickLogInHandler = (): void => {
+		onClose();
+		openAuth();
+	};
 
 	return (
 		<Dialog onClose={onClose}>
@@ -23,7 +30,7 @@ const MobileMenu: FC<Props> = (props: Props) => {
 				<Separator />
 				<MenuList>
 					<li>
-						<MenuButton>Войти</MenuButton>
+						<MenuButton onClick={clickLogInHandler}>Войти</MenuButton>
 					</li>
 				</MenuList>
 			</NavigationStyled>
