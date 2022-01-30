@@ -18,6 +18,9 @@ const authSlice = createSlice({
 		close: (state) => {
 			state.isOpen = false;
 		},
+		toggleType: (state) => {
+			state.isRegistration = !state.isRegistration;
+		},
 	},
 });
 

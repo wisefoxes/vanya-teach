@@ -5,5 +5,6 @@ import { RootState } from 'store/store';
 const selectAuth = (state: RootState) => state.auth;
 
 const selectAuthOpen = createSelector(selectAuth, (auth) => auth.isOpen);
+const selectRegistrationType = createSelector(selectAuth, (auth) => auth.isRegistration);
 
-export { selectAuthOpen };
+export { selectAuthOpen, selectRegistrationType };
