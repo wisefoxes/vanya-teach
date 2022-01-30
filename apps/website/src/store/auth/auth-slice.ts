@@ -1,15 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ModalState } from './types';
 
 type State = {
 	isOpen: boolean;
-	isRegistration: boolean;
+	modalState: ModalState;
 };
 
 const authSlice = createSlice({
 	name: 'auth',
 	initialState: {
 		isOpen: false,
-		isRegistration: false,
+		modalState: 'login',
 	} as State,
 	reducers: {
 		open: (state) => {
@@ -18,8 +19,8 @@ const authSlice = createSlice({
 		close: (state) => {
 			state.isOpen = false;
 		},
-		toggleType: (state) => {
-			state.isRegistration = !state.isRegistration;
+		setType: (state: State, { payload }: PayloadAction<ModalState>) => {
+			state.modalState = payload;
 		},
 	},
 });

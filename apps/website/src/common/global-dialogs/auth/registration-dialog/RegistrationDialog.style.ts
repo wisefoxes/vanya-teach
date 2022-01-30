@@ -15,7 +15,10 @@ const RegistrationForm = styled.form`
 `;
 
 const AlreadyMember = styled.div`
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: ${rem(10)};
 	font-size: ${rem(18)};
 `;
 

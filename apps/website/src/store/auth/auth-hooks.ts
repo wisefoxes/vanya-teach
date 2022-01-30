@@ -1,11 +1,18 @@
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { selectAuthOpen, selectRegistrationType } from 'store/selectors/auth';
+import { selectAuthOpen, selectAuthModalState } from 'store/selectors/auth';
 import { authActions } from './auth-slice';
+import { ModalState } from './types';
 
-function useAuth(): { isOpen: boolean; isRegistration: boolean; close: () => void; open: () => void; toggleType: () => void } {
+function useAuth(): {
+	isOpen: boolean;
+	modalState: ModalState;
+	close: () => void;
+	open: () => void;
+	setModalState: (type: ModalState) => void;
+} {
 	const dispatch = useAppDispatch();
 	const isOpen = useAppSelector(selectAuthOpen);
-	const isRegistration = useAppSelector(selectRegistrationType);
+	const modalState = useAppSelector(selectAuthModalState);
 
 	const close = (): void => {
 		dispatch(authActions.close());
@@ -15,11 +22,11 @@ function useAuth(): { isOpen: boolean; isRegistration: boolean; close: () => voi
 		dispatch(authActions.open());
 	};
 
-	const toggleType = (): void => {
-		dispatch(authActions.toggleType());
+	const setModalState = (type: ModalState): void => {
+		dispatch(authActions.setType(type));
 	};
 
-	return { isOpen, isRegistration, close, open, toggleType };
+	return { isOpen, modalState, close, open, setModalState };
 }
 
 export { useAuth };

@@ -7,7 +7,9 @@ import { TextButton } from 'ui-kit/atoms/text-button';
 import { AlreadyMember, RegistrationDialogStyled, RegistrationForm } from './RegistrationDialog.style';
 
 const RegistrationDialog: FC = () => {
-	const { toggleType } = useAuth();
+	const { setModalState } = useAuth();
+
+	const clickLogInHandler = (): void => setModalState('login');
 
 	return (
 		<RegistrationDialogStyled>
@@ -21,7 +23,7 @@ const RegistrationDialog: FC = () => {
 			<Button type="primary">Присоединиться</Button>
 			<AlreadyMember>
 				Уже есть аккаунт?
-				<TextButton onClick={toggleType}>Войти</TextButton>
+				<TextButton onClick={clickLogInHandler}>Войти</TextButton>
 			</AlreadyMember>
 		</RegistrationDialogStyled>
 	);

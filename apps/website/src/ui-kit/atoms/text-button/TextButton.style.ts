@@ -9,6 +9,7 @@ const TextButtonStyled = styled.button`
 	font-family: var(--font__primary);
 	padding: ${rem(5)} ${rem(10)};
 	font-size: inherit;
+	margin: ${rem(-5)} ${rem(-10)};
 `;
 
 export { TextButtonStyled };

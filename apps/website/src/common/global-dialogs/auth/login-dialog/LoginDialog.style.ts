@@ -19,4 +19,9 @@ const SignLabel = styled.div`
 	font-weight: var(--font-weight__light);
 `;
 
-export { LoginDialogStyled, LoginForm, SignLabel };
+const LoginSettings = styled.div`
+	display: flex;
+	justify-content: space-between;
+`;
+
+export { LoginDialogStyled, LoginForm, LoginSettings, SignLabel };
