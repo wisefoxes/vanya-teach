@@ -2,7 +2,7 @@ import { hideVisually, rem } from 'polished';
 import styled from 'styled-components';
 
 const CheckboxStyled = styled.label`
-	padding-left: ${rem(24)};
+	padding-left: ${rem(32)};
 	cursor: pointer;
 `;
 
@@ -11,7 +11,7 @@ const CheckboxBox = styled.span`
 	position: absolute;
 	width: ${rem(20)};
 	height: ${rem(20)};
-	margin-left: ${rem(-24)};
+	margin-left: ${rem(-32)};
 	box-sizing: border-box;
 	opacity: 0.6;
 
@@ -31,7 +31,8 @@ const CheckboxBox = styled.span`
 `;
 
 const CheckboxLabel = styled.span`
-	line-height: 1.3;
+	line-height: 1.2;
+	color: currentColor;
 `;
 
 const CheckboxInput = styled.input`

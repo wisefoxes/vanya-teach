@@ -4,7 +4,7 @@ import { Button } from 'ui-kit/atoms/button';
 import { Heading } from 'ui-kit/atoms/heading';
 import { Input } from 'ui-kit/atoms/input';
 import { TextButton } from 'ui-kit/atoms/text-button';
-import { AlreadyMember, RegistrationDialogStyled, RegistrationForm } from './RegistrationDialog.style';
+import { AlreadyMember, ReceiveUpdatesCheckbox, RegistrationDialogStyled, RegistrationForm } from './RegistrationDialog.style';
 
 const RegistrationDialog: FC = () => {
 	const { setModalState } = useAuth();
@@ -19,6 +19,9 @@ const RegistrationDialog: FC = () => {
 				<Input placeholder="Фамилия" />
 				<Input placeholder="E-mail" type="email" />
 				<Input placeholder="Пароль" type="password" />
+				<ReceiveUpdatesCheckbox>
+					Да, я хочу получать оповещения о скидках, новых поступлениях, промокодах, новостях и эксклюзивных предложениях по почте
+				</ReceiveUpdatesCheckbox>
 			</RegistrationForm>
 			<Button type="primary">Присоединиться</Button>
 			<AlreadyMember>

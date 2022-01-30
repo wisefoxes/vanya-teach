@@ -29,7 +29,7 @@ const ButtonStyled = styled.button.attrs<{ $type: ButtonType }, { $primary: bool
 		align-items: center;
 		border: ${rem(2)} solid var(--color__primary-400);
 		font-weight: var(--font-weight__semi-bold);
-		font-family: var(--font__primary);
+		font-family: inherit;
 		transition: background-color 0.2s ease-in-out;
 		color: var(--color__basic-900);
 		width: 100%;

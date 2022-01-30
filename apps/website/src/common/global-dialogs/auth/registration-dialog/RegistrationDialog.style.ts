@@ -1,5 +1,6 @@
 import { rem } from 'polished';
 import styled from 'styled-components';
+import { Checkbox } from 'ui-kit/atoms/checkbox';
 
 const RegistrationDialogStyled = styled.section`
 	display: flex;
@@ -14,6 +15,13 @@ const RegistrationForm = styled.form`
 	gap: ${rem(20)};
 `;
 
+const ReceiveUpdatesCheckbox = styled(Checkbox)`
+	color: var(--color__basic-700);
+	font-weight: var(--font-weight__light);
+	font-size: ${rem(14)};
+	line-height: 1.5;
+`;
+
 const AlreadyMember = styled.div`
 	display: flex;
 	justify-content: center;
@@ -22,4 +30,4 @@ const AlreadyMember = styled.div`
 	font-size: ${rem(18)};
 `;
 
-export { RegistrationDialogStyled, RegistrationForm, AlreadyMember };
+export { RegistrationDialogStyled, RegistrationForm, ReceiveUpdatesCheckbox, AlreadyMember };
