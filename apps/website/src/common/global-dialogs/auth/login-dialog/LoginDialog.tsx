@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useAuth } from 'store/auth';
 import { Button } from 'ui-kit/atoms/button';
+import { Checkbox } from 'ui-kit/atoms/checkbox';
 import { Divider } from 'ui-kit/atoms/divider';
 import { Heading } from 'ui-kit/atoms/heading';
 import { Input } from 'ui-kit/atoms/input';
@@ -15,6 +16,7 @@ const LoginDialog: FC = () => {
 			<LoginForm>
 				<Input placeholder="E-mail" type="email" />
 				<Input placeholder="Password" type="password" />
+				<Checkbox>Запомнить меня</Checkbox>
 				<Button type="primary">Войти</Button>
 			</LoginForm>
 			<Divider />
