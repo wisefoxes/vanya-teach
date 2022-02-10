@@ -1,3 +1,4 @@
+import { OAuthProvider } from 'core/oauth/oauth-context';
 import { StaticProvider } from 'core/static/static-context';
 import i18next from 'i18next';
 import { FC } from 'react';
@@ -15,8 +16,10 @@ export const Root: FC = () => {
 			<StaticProvider>
 				<BrowserRouter>
 					<I18nextProvider i18n={i18next}>
-						<GlobalStyles />
-						<App />
+						<OAuthProvider>
+							<GlobalStyles />
+							<App />
+						</OAuthProvider>
 					</I18nextProvider>
 				</BrowserRouter>
 			</StaticProvider>

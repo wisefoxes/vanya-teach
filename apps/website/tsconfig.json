@@ -12,7 +12,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "typeRoots": ["./global.d.ts"]
   },
   "files": [],
   "include": [],

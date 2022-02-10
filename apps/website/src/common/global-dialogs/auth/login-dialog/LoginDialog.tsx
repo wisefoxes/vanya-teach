@@ -7,6 +7,7 @@ import { Heading } from 'ui-kit/atoms/heading';
 import { Input } from 'ui-kit/atoms/input';
 import { TextButton } from 'ui-kit/atoms/text-button';
 import { LoginDialogStyled, LoginForm, LoginSettings, SignLabel } from './LoginDialog.style';
+import { OAuthControls } from './oauth-controls';
 
 const LoginDialog: FC = () => {
 	const { setModalState } = useAuth();
@@ -25,6 +26,7 @@ const LoginDialog: FC = () => {
 					<TextButton onClick={clickForgotPasswordHandler}>Забыл пароль?</TextButton>
 				</LoginSettings>
 				<Button type="primary">Войти</Button>
+				<OAuthControls />
 			</LoginForm>
 			<Divider />
 			<SignLabel>Первый раз?</SignLabel>

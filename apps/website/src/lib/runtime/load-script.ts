@@ -3,6 +3,7 @@ export async function loadScript(src: string): Promise<void> {
 
 	script.async = true;
 	script.src = src;
+	document.body.appendChild(script);
 
 	return new Promise((resolve, reject) => {
 		script.onload = (): void => resolve();
