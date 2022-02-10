@@ -1,5 +1,6 @@
 import { FC, useRef } from 'react';
 import { useGoogleOAuth } from './hooks';
+import { GoogleButton } from './OAuthControls.style';
 
 const OAuthControls: FC = () => {
 	const googleBtnRef = useRef<HTMLDivElement>(null);
@@ -8,7 +9,7 @@ const OAuthControls: FC = () => {
 
 	return (
 		<div>
-			<div ref={googleBtnRef} />
+			<GoogleButton ref={googleBtnRef} />
 		</div>
 	);
 };

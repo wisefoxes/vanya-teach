@@ -3,7 +3,7 @@ function initializeGoogleAuth(clientID: string, callback: (credential: string) =
 }
 
 function renderGoogleAuthButton(ref: HTMLElement): void {
-	window.google.accounts.id.renderButton(ref, { theme: 'outline', size: 'large', width: 'large' });
+	window.google.accounts.id.renderButton(ref, {});
 }
 
 export { initializeGoogleAuth, renderGoogleAuthButton };
