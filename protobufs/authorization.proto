@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package authorization;
+option go_package = "./go/authorizationpb";
+
+message User {
+  string id = 1;
+  string name = 2;
+}
+
+message GoogleLoginRequest {
+  string jwt_token = 1;
+}
+
+message GoogleLoginResponse {
+  User user = 1;
+}
+
+service Authorization {
+  rpc GoogleLogin(GoogleLoginRequest) returns (GoogleLoginResponse) {};
+}
