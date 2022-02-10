@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Logo } from 'ui-kit/atoms/logo';
-import { useOpener } from 'lib/hooks/opener';
+import { useOpener } from 'lib/hooks/useOpener';
 import { Hamburger } from './hamburger';
 import { HeaderContent, HeaderStyled, RightMenu } from './Header.style';
 import { CartButton } from './cart-button';

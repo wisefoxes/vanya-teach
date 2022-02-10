@@ -1,4 +1,4 @@
-import { usePrevious } from 'lib/hooks/previous';
+import { usePrevious } from 'lib/hooks/usePrevious';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
