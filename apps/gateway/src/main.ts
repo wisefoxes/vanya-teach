@@ -4,12 +4,14 @@
  */
 
 import * as express from 'express';
+import * as bodyParser from 'body-parser';
+import { authRouter } from './app/routes/auth';
 
 const app = express();
 
-app.get('/api', (req, res) => {
-	res.send({ message: 'Welcome to gateway!' });
-});
+app.use(bodyParser.json());
+
+app.use('/auth', authRouter);
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
